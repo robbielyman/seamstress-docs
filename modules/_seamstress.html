@@ -1,0 +1,843 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>seamstress</h1>
+
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/arc.html">arc</a></li>
+  <li><strong>_seamstress</strong></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>_seamstress</code></h1>
+<p>zig->lua and lua->zig interface</p>
+<p>
+
+</p>
+    <h3>Info:</h3>
+    <ul>
+        <li><strong>Author</strong>: ryleelyman</li>
+    </ul>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#osc_send">osc_send (address, path, args)</a></td>
+	<td class="summary">sends OSC to specified address.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#grid_set_led">grid_set_led (md, x, y, val)</a></td>
+	<td class="summary">sets grid led.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#grid_all_led">grid_all_led (md, val)</a></td>
+	<td class="summary">sets all grid leds.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#grid_rows">grid_rows (md)</a></td>
+	<td class="summary">reports number of rows of grid device.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#grid_cols">grid_cols (md)</a></td>
+	<td class="summary">reports number of columns of grid device.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#grid_set_rotation">grid_set_rotation (md, rotation)</a></td>
+	<td class="summary">sets grid rotation.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#grid_tilt_enable">grid_tilt_enable (md, sensor)</a></td>
+	<td class="summary">enable tilt data.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#grid_tilt_disable">grid_tilt_disable (md, sensor)</a></td>
+	<td class="summary">disable tilt data.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#arc_set_led">arc_set_led (md, ring, led)</a></td>
+	<td class="summary">sets arc led.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#arc_all_led">arc_all_led (md, val)</a></td>
+	<td class="summary">sets all arc leds.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#monome_refresh">monome_refresh (md)</a></td>
+	<td class="summary">send dirty quads to monome device.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#monome_intensity">monome_intensity (md, level)</a></td>
+	<td class="summary">sets maximum led brightness.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#screen_redraw">screen_redraw ()</a></td>
+	<td class="summary">refreshes the screen.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#screen_pixel">screen_pixel (x, y)</a></td>
+	<td class="summary">draws a single pixel.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#screen_line">screen_line (ax, ay, bx, by)</a></td>
+	<td class="summary">draws a line.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#screen_rect">screen_rect (x, y, w, h)</a></td>
+	<td class="summary">draws a rectangle.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#screen_rect_fill">screen_rect_fill (x, y, w, h)</a></td>
+	<td class="summary">draws a filled rectangle.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#screen_text">screen_text (x, y, words)</a></td>
+	<td class="summary">draws text to the screen.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#screen_color">screen_color (r, g, b, a)</a></td>
+	<td class="summary">sets screen color.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#screen_clear">screen_clear ()</a></td>
+	<td class="summary">clears the screen.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#metro_start">metro_start (idx, seconds, count, stage)</a></td>
+	<td class="summary">starts a new metro.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#metro_stop">metro_stop (idx)</a></td>
+	<td class="summary">stops a metro.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#metro_set_time">metro_set_time (idx, seconds)</a></td>
+	<td class="summary">set repetition time for a metro.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#reset_lvm">reset_lvm ()</a></td>
+	<td class="summary">resets lua VM.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "osc_send"></a>
+    <strong>osc_send (address, path, args)</strong>
+    </dt>
+    <dd>
+    sends OSC to specified address.
+ users should use @{osc:send} instead.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">address</span>
+         a table of the form <code>{host, port}</code>, both strings
+        </li>
+        <li><span class="parameter">path</span>
+         a string representing an OSC path <code>/like/this</code>
+        </li>
+        <li><span class="parameter">args</span>
+         an array whose data will be passed to OSC as arguments
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+    </ul>
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">osc.<span class="function-name">send</span>({<span class="string">"localhost"</span>, <span class="string">"7777"</span>}, <span class="string">"/send/stuff"</span>, {<span class="string">"a"</span>, <span class="number">0</span>, <span class="number">0.5</span>, <span class="keyword">nil</span>, <span class="keyword">true</span>})</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "grid_set_led"></a>
+    <strong>grid_set_led (md, x, y, val)</strong>
+    </dt>
+    <dd>
+    sets grid led.
+ users should use @{grid:led} instead.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">md</span>
+         opaque pointer to monome device
+        </li>
+        <li><span class="parameter">x</span>
+         x-coordinate for led (1-indexed)
+        </li>
+        <li><span class="parameter">y</span>
+         y-coordinate for led (1-indexed)
+        </li>
+        <li><span class="parameter">val</span>
+         brightness for led (0-15)
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "grid_all_led"></a>
+    <strong>grid_all_led (md, val)</strong>
+    </dt>
+    <dd>
+    sets all grid leds.
+ users should use @{grid:all} instead.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">md</span>
+         opaque pointer to monome device
+        </li>
+        <li><span class="parameter">val</span>
+         brightness for led (0-15)
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "grid_rows"></a>
+    <strong>grid_rows (md)</strong>
+    </dt>
+    <dd>
+    reports number of rows of grid device.
+ users should use @{grid.rows} instead.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">md</span>
+         opaque pointer to monome device
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        number of rows
+    </ol>
+
+
+    <h3>See also:</h3>
+    <ul>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "grid_cols"></a>
+    <strong>grid_cols (md)</strong>
+    </dt>
+    <dd>
+    reports number of columns of grid device.
+ users should use @{grid.cols} instead
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">md</span>
+         opaque pointer to monome device
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        number of columns
+    </ol>
+
+
+    <h3>See also:</h3>
+    <ul>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "grid_set_rotation"></a>
+    <strong>grid_set_rotation (md, rotation)</strong>
+    </dt>
+    <dd>
+    sets grid rotation.
+ users should use @{grid:rotation} instead
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">md</span>
+         opaque pointer to monome device
+        </li>
+        <li><span class="parameter">rotation</span>
+         value to rotate
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "grid_tilt_enable"></a>
+    <strong>grid_tilt_enable (md, sensor)</strong>
+    </dt>
+    <dd>
+    enable tilt data.
+ users should use @{grid:tilt} instead
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">md</span>
+         opaque pointer to monome device
+        </li>
+        <li><span class="parameter">sensor</span>
+         tilt sensor to enable
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "grid_tilt_disable"></a>
+    <strong>grid_tilt_disable (md, sensor)</strong>
+    </dt>
+    <dd>
+    disable tilt data.
+ users should use @{grid:tilt} instead
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">md</span>
+         opaque pointer to monome device
+        </li>
+        <li><span class="parameter">sensor</span>
+         tilt sensor to disable
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "arc_set_led"></a>
+    <strong>arc_set_led (md, ring, led)</strong>
+    </dt>
+    <dd>
+    sets arc led.
+ users should use @{arc:led} instead
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">md</span>
+         opaque pointer to monome device
+        </li>
+        <li><span class="parameter">ring</span>
+         arc ring (1-based)
+        </li>
+        <li><span class="parameter">led</span>
+         arc led (1-based)
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "arc_all_led"></a>
+    <strong>arc_all_led (md, val)</strong>
+    </dt>
+    <dd>
+    sets all arc leds.
+ users should use @{arc:all} instead
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">md</span>
+         opaque pointser to monome device
+        </li>
+        <li><span class="parameter">val</span>
+         led brightness (0-15)
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "monome_refresh"></a>
+    <strong>monome_refresh (md)</strong>
+    </dt>
+    <dd>
+    send dirty quads to monome device.
+ users should use @{grid:refresh} or @{arc:refresh} instead
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">md</span>
+         opaque pointer to monome device
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "monome_intensity"></a>
+    <strong>monome_intensity (md, level)</strong>
+    </dt>
+    <dd>
+    sets maximum led brightness.
+ users should use @{grid:intensity} or @{arc:intensity} instead
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">md</span>
+         opaque pointer to monome device
+        </li>
+        <li><span class="parameter">level</span>
+         maximum brightness level
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "screen_redraw"></a>
+    <strong>screen_redraw ()</strong>
+    </dt>
+    <dd>
+    refreshes the screen.
+ users should use @{screen:redraw} instead
+
+
+
+
+
+    <h3>See also:</h3>
+    <ul>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "screen_pixel"></a>
+    <strong>screen_pixel (x, y)</strong>
+    </dt>
+    <dd>
+    draws a single pixel.
+ users should use @{screen:pixel} instead
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+         x-coordinate (1-based)
+        </li>
+        <li><span class="parameter">y</span>
+         y-coordinate (1-based)
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "screen_line"></a>
+    <strong>screen_line (ax, ay, bx, by)</strong>
+    </dt>
+    <dd>
+    draws a line.
+ users should use @{screen:line} instead
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ax</span>
+         initial x-coordinate (1-based)
+        </li>
+        <li><span class="parameter">ay</span>
+         initial y-coordinate (1-based)
+        </li>
+        <li><span class="parameter">bx</span>
+         terminal x-coordinate (1-based)
+        </li>
+        <li><span class="parameter">by</span>
+         terminal y-coordinate (1-based)
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "screen_rect"></a>
+    <strong>screen_rect (x, y, w, h)</strong>
+    </dt>
+    <dd>
+    draws a rectangle.
+ users should use @{screen:rect} instead
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+         upper-left x-coordinate (1-based)
+        </li>
+        <li><span class="parameter">y</span>
+         upper-left x-coordinate (1-based)
+        </li>
+        <li><span class="parameter">w</span>
+         width in pixels
+        </li>
+        <li><span class="parameter">h</span>
+         height in pixels
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "screen_rect_fill"></a>
+    <strong>screen_rect_fill (x, y, w, h)</strong>
+    </dt>
+    <dd>
+    draws a filled rectangle.
+ users should use @{screen:rect} instead
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+         upper-left x-coordinate (1-based)
+        </li>
+        <li><span class="parameter">y</span>
+         upper-left x-coordinate (1-based)
+        </li>
+        <li><span class="parameter">w</span>
+         width in pixels
+        </li>
+        <li><span class="parameter">h</span>
+         height in pixels
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "screen_text"></a>
+    <strong>screen_text (x, y, words)</strong>
+    </dt>
+    <dd>
+    draws text to the screen.
+ users should use @{screen:text} instead
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+         upper-left x-coordinate (1-based)
+        </li>
+        <li><span class="parameter">y</span>
+         upper-left y-coordinate (1-based)
+        </li>
+        <li><span class="parameter">words</span>
+         text to draw to the screen
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "screen_color"></a>
+    <strong>screen_color (r, g, b, a)</strong>
+    </dt>
+    <dd>
+    sets screen color.
+ users should use @{screen:color} instead
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">r</span>
+         red value (0-255)
+        </li>
+        <li><span class="parameter">g</span>
+         green value (0-255)
+        </li>
+        <li><span class="parameter">b</span>
+         blue value (0-255)
+        </li>
+        <li><span class="parameter">a</span>
+         alpha value (0-255), defaults to 255
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "screen_clear"></a>
+    <strong>screen_clear ()</strong>
+    </dt>
+    <dd>
+    clears the screen.
+ users should use @{screen:clear} instead
+
+
+
+
+
+    <h3>See also:</h3>
+    <ul>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "metro_start"></a>
+    <strong>metro_start (idx, seconds, count, stage)</strong>
+    </dt>
+    <dd>
+    starts a new metro.
+ users should use @{metro:start} instead
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">idx</span>
+         metro id (1-36)
+        </li>
+        <li><span class="parameter">seconds</span>
+         float time at which to repeat
+        </li>
+        <li><span class="parameter">count</span>
+         stage at which to stop
+        </li>
+        <li><span class="parameter">stage</span>
+         stage at which to start
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "metro_stop"></a>
+    <strong>metro_stop (idx)</strong>
+    </dt>
+    <dd>
+    stops a metro.
+ users should use @{metro:stop} instead
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">idx</span>
+         metro id (1-36)
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "metro_set_time"></a>
+    <strong>metro_set_time (idx, seconds)</strong>
+    </dt>
+    <dd>
+    set repetition time for a metro.
+ users should use @{metro.time} instead
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">idx</span>
+         metro id (1-36)
+        </li>
+        <li><span class="parameter">seconds</span>
+         new period (float)
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "reset_lvm"></a>
+    <strong>reset_lvm ()</strong>
+    </dt>
+    <dd>
+    resets lua VM.
+
+
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2023-06-12 14:58:57 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
