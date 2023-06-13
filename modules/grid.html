@@ -1,0 +1,360 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>seamstress</h1>
+
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Class_grid">Class grid </a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/arc.html">arc</a></li>
+  <li><strong>grid</strong></li>
+  <li><a href="../modules/metro.html">metro</a></li>
+  <li><a href="../modules/osc.html">osc</a></li>
+  <li><a href="../modules/screen.html">screen</a></li>
+  <li><a href="../modules/vport.html">vport</a></li>
+  <li><a href="../modules/util.html">util</a></li>
+  <li><a href="../modules/_seamstress.html">_seamstress</a></li>
+</ul>
+<h2>Scripts</h2>
+<ul class="nowrap">
+  <li><a href="../scripts/config.lua.html">config.lua</a></li>
+  <li><a href="../scripts/seamstress.html">seamstress</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>grid</code></h1>
+<p>grid</p>
+<p>
+
+</p>
+
+
+<h2><a href="#Class_grid">Class grid </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#grid:add">grid:add (dev)</a></td>
+	<td class="summary">callback called when a grid is plugged in;
+ overwrite in user scripts</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#grid:connect">grid:connect (n)</a></td>
+	<td class="summary">attempt to connect grid at port <code>n</code></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#grid:remove">grid:remove (dev)</a></td>
+	<td class="summary">callback executed when a grid is removed;
+ overwrite in user scripts</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#grid:rotation">grid:rotation (self, val)</a></td>
+	<td class="summary">set grid rotation</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#grid:led">grid:led (self, x, y, val)</a></td>
+	<td class="summary">set grid led</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#grid:all">grid:all (self, val)</a></td>
+	<td class="summary">set all grid leds</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#grid:refresh">grid:refresh (self)</a></td>
+	<td class="summary">refresh dirty quads</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#grid:intensity">grid:intensity (self, i)</a></td>
+	<td class="summary">limit led intensity</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#grid:tilt">grid:tilt (self, sensor, tilt)</a></td>
+	<td class="summary">enable/disable grid tilt sensor</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header has-description"><a name="Class_grid"></a>Class grid </h2>
+
+          <div class="section-description">
+          grid object
+          </div>
+    <dl class="function">
+    <dt>
+    <a name = "grid:add"></a>
+    <strong>grid:add (dev)</strong>
+    </dt>
+    <dd>
+    callback called when a grid is plugged in;
+ overwrite in user scripts
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">dev</span>
+            <span class="types"><a class="type" href="../modules/grid.html#grid">grid</a></span>
+         grid object
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "grid:connect"></a>
+    <strong>grid:connect (n)</strong>
+    </dt>
+    <dd>
+    attempt to connect grid at port <code>n</code>
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">n</span>
+            <span class="types"><span class="type">integer</span></span>
+         (1-4)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../modules/grid.html#grid">grid</a></span>
+        grid
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "grid:remove"></a>
+    <strong>grid:remove (dev)</strong>
+    </dt>
+    <dd>
+    callback executed when a grid is removed;
+ overwrite in user scripts
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">dev</span>
+            <span class="types"><a class="type" href="../modules/grid.html#grid">grid</a></span>
+         grid object
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "grid:rotation"></a>
+    <strong>grid:rotation (self, val)</strong>
+    </dt>
+    <dd>
+    set grid rotation
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+            <span class="types"><a class="type" href="../modules/grid.html#grid">grid</a></span>
+         grid object
+        </li>
+        <li><span class="parameter">val</span>
+            <span class="types"><span class="type">integer</span></span>
+         rotation
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "grid:led"></a>
+    <strong>grid:led (self, x, y, val)</strong>
+    </dt>
+    <dd>
+    set grid led
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+            <span class="types"><a class="type" href="../modules/grid.html#grid">grid</a></span>
+         grid object
+        </li>
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">integer</span></span>
+         x-coordinate of led (1-based)
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">integer</span></span>
+         y-coordinate of led (1-based)
+        </li>
+        <li><span class="parameter">val</span>
+            <span class="types"><span class="type">integer</span></span>
+         (0-15)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "grid:all"></a>
+    <strong>grid:all (self, val)</strong>
+    </dt>
+    <dd>
+    set all grid leds
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+            <span class="types"><a class="type" href="../modules/grid.html#grid">grid</a></span>
+         grid object
+        </li>
+        <li><span class="parameter">val</span>
+            <span class="types"><span class="type">integer</span></span>
+         (0-15)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "grid:refresh"></a>
+    <strong>grid:refresh (self)</strong>
+    </dt>
+    <dd>
+    refresh dirty quads
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+            <span class="types"><a class="type" href="../modules/grid.html#grid">grid</a></span>
+         grid object
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "grid:intensity"></a>
+    <strong>grid:intensity (self, i)</strong>
+    </dt>
+    <dd>
+    limit led intensity
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+            <span class="types"><a class="type" href="../modules/grid.html#grid">grid</a></span>
+         grid object
+        </li>
+        <li><span class="parameter">i</span>
+            <span class="types"><span class="type">integer</span></span>
+         intensity limit
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "grid:tilt"></a>
+    <strong>grid:tilt (self, sensor, tilt)</strong>
+    </dt>
+    <dd>
+    enable/disable grid tilt sensor
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+            <span class="types"><a class="type" href="../modules/grid.html#grid">grid</a></span>
+         grid object
+        </li>
+        <li><span class="parameter">sensor</span>
+            <span class="types"><span class="type">integer</span></span>
+         (1-based)
+        </li>
+        <li><span class="parameter">tilt</span>
+            <span class="types"><span class="type">bool</span></span>
+         enable/disable flag
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2023-06-12 20:39:12 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

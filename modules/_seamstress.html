@@ -40,7 +40,18 @@
 <h2>Modules</h2>
 <ul class="nowrap">
   <li><a href="../modules/arc.html">arc</a></li>
+  <li><a href="../modules/grid.html">grid</a></li>
+  <li><a href="../modules/metro.html">metro</a></li>
+  <li><a href="../modules/osc.html">osc</a></li>
+  <li><a href="../modules/screen.html">screen</a></li>
+  <li><a href="../modules/vport.html">vport</a></li>
+  <li><a href="../modules/util.html">util</a></li>
   <li><strong>_seamstress</strong></li>
+</ul>
+<h2>Scripts</h2>
+<ul class="nowrap">
+  <li><a href="../scripts/config.lua.html">config.lua</a></li>
+  <li><a href="../scripts/seamstress.html">seamstress</a></li>
 </ul>
 
 </div>
@@ -93,7 +104,7 @@
 	<td class="summary">disable tilt data.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#arc_set_led">arc_set_led (md, ring, led)</a></td>
+	<td class="name" nowrap><a href="#arc_set_led">arc_set_led (md, ring, led, val)</a></td>
 	<td class="summary">sets arc led.</td>
 	</tr>
 	<tr>
@@ -171,7 +182,7 @@
     </dt>
     <dd>
     sends OSC to specified address.
- users should use @{osc:send} instead.
+ users should use <a href="../modules/osc.html#OSC.send">osc:send</a> instead.
 
 
     <h3>Parameters:</h3>
@@ -191,6 +202,7 @@
 
     <h3>See also:</h3>
     <ul>
+         <a href="../modules/osc.html#OSC.send">osc.send</a>
     </ul>
 
     <h3>Usage:</h3>
@@ -205,7 +217,7 @@
     </dt>
     <dd>
     sets grid led.
- users should use @{grid:led} instead.
+ users should use <a href="../modules/grid.html#grid:led">grid:led</a> instead.
 
 
     <h3>Parameters:</h3>
@@ -228,6 +240,7 @@
 
     <h3>See also:</h3>
     <ul>
+         <a href="../modules/grid.html#grid:led">grid:led</a>
     </ul>
 
 
@@ -238,7 +251,7 @@
     </dt>
     <dd>
     sets all grid leds.
- users should use @{grid:all} instead.
+ users should use <a href="../modules/grid.html#grid:all">grid:all</a> instead.
 
 
     <h3>Parameters:</h3>
@@ -255,6 +268,7 @@
 
     <h3>See also:</h3>
     <ul>
+         <a href="../modules/grid.html#grid:all">grid:all</a>
     </ul>
 
 
@@ -265,7 +279,6 @@
     </dt>
     <dd>
     reports number of rows of grid device.
- users should use @{grid.rows} instead.
 
 
     <h3>Parameters:</h3>
@@ -282,9 +295,6 @@
     </ol>
 
 
-    <h3>See also:</h3>
-    <ul>
-    </ul>
 
 
 </dd>
@@ -294,7 +304,6 @@
     </dt>
     <dd>
     reports number of columns of grid device.
- users should use @{grid.cols} instead
 
 
     <h3>Parameters:</h3>
@@ -311,9 +320,6 @@
     </ol>
 
 
-    <h3>See also:</h3>
-    <ul>
-    </ul>
 
 
 </dd>
@@ -323,7 +329,7 @@
     </dt>
     <dd>
     sets grid rotation.
- users should use @{grid:rotation} instead
+ users should use <a href="../modules/grid.html#grid:rotation">grid:rotation</a> instead
 
 
     <h3>Parameters:</h3>
@@ -340,6 +346,7 @@
 
     <h3>See also:</h3>
     <ul>
+         <a href="../modules/grid.html#grid:rotation">grid:rotation</a>
     </ul>
 
 
@@ -350,7 +357,7 @@
     </dt>
     <dd>
     enable tilt data.
- users should use @{grid:tilt} instead
+ users should use <a href="../modules/grid.html#grid:tilt">grid:tilt</a> instead
 
 
     <h3>Parameters:</h3>
@@ -367,6 +374,7 @@
 
     <h3>See also:</h3>
     <ul>
+         <a href="../modules/grid.html#grid:tilt">grid:tilt</a>
     </ul>
 
 
@@ -377,7 +385,7 @@
     </dt>
     <dd>
     disable tilt data.
- users should use @{grid:tilt} instead
+ users should use <a href="../modules/grid.html#grid:tilt">grid:tilt</a> instead
 
 
     <h3>Parameters:</h3>
@@ -394,17 +402,18 @@
 
     <h3>See also:</h3>
     <ul>
+         <a href="../modules/grid.html#grid:tilt">grid:tilt</a>
     </ul>
 
 
 </dd>
     <dt>
     <a name = "arc_set_led"></a>
-    <strong>arc_set_led (md, ring, led)</strong>
+    <strong>arc_set_led (md, ring, led, val)</strong>
     </dt>
     <dd>
     sets arc led.
- users should use @{arc:led} instead
+ users should use <a href="../modules/arc.html#arc:led">arc:led</a> instead
 
 
     <h3>Parameters:</h3>
@@ -418,12 +427,16 @@
         <li><span class="parameter">led</span>
          arc led (1-based)
         </li>
+        <li><span class="parameter">val</span>
+         led brightness (0-15)
+        </li>
     </ul>
 
 
 
     <h3>See also:</h3>
     <ul>
+         <a href="../modules/arc.html#arc:led">arc:led</a>
     </ul>
 
 
@@ -434,7 +447,7 @@
     </dt>
     <dd>
     sets all arc leds.
- users should use @{arc:all} instead
+ users should use <a href="../modules/arc.html#arc:all">arc:all</a> instead
 
 
     <h3>Parameters:</h3>
@@ -451,6 +464,7 @@
 
     <h3>See also:</h3>
     <ul>
+         <a href="../modules/arc.html#arc:all">arc:all</a>
     </ul>
 
 
@@ -461,7 +475,7 @@
     </dt>
     <dd>
     send dirty quads to monome device.
- users should use @{grid:refresh} or @{arc:refresh} instead
+ users should use <a href="../modules/grid.html#grid:refresh">grid:refresh</a> or <a href="../modules/arc.html#arc:refresh">arc:refresh</a> instead
 
 
     <h3>Parameters:</h3>
@@ -475,6 +489,8 @@
 
     <h3>See also:</h3>
     <ul>
+         <li><a href="../modules/arc.html#arc:refresh">arc:refresh</a></li>
+         <li><a href="../modules/grid.html#grid:refresh">grid:refresh</a></li>
     </ul>
 
 
@@ -485,7 +501,7 @@
     </dt>
     <dd>
     sets maximum led brightness.
- users should use @{grid:intensity} or @{arc:intensity} instead
+ users should use <a href="../modules/grid.html#grid:intensity">grid:intensity</a> or <a href="../modules/arc.html#arc:intensity">arc:intensity</a> instead
 
 
     <h3>Parameters:</h3>
@@ -502,6 +518,8 @@
 
     <h3>See also:</h3>
     <ul>
+         <li><a href="../modules/arc.html#arc:intensity">arc:intensity</a></li>
+         <li><a href="../modules/grid.html#grid:intensity">grid:intensity</a></li>
     </ul>
 
 
@@ -512,7 +530,7 @@
     </dt>
     <dd>
     refreshes the screen.
- users should use @{screen:redraw} instead
+ users should use <a href="../modules/screen.html#redraw">screen.redraw</a> instead
 
 
 
@@ -520,6 +538,7 @@
 
     <h3>See also:</h3>
     <ul>
+         <a href="../modules/screen.html#redraw">screen:redraw</a>
     </ul>
 
 
@@ -530,7 +549,7 @@
     </dt>
     <dd>
     draws a single pixel.
- users should use @{screen:pixel} instead
+ users should use <a href="../modules/screen.html#pixel">screen.pixel</a> instead
 
 
     <h3>Parameters:</h3>
@@ -547,6 +566,7 @@
 
     <h3>See also:</h3>
     <ul>
+         <a href="../modules/screen.html#pixel">screen:pixel</a>
     </ul>
 
 
@@ -557,7 +577,7 @@
     </dt>
     <dd>
     draws a line.
- users should use @{screen:line} instead
+ users should use <a href="../modules/screen.html#line">screen.line</a> instead
 
 
     <h3>Parameters:</h3>
@@ -580,6 +600,7 @@
 
     <h3>See also:</h3>
     <ul>
+         <a href="../modules/screen.html#line">screen:line</a>
     </ul>
 
 
@@ -590,7 +611,7 @@
     </dt>
     <dd>
     draws a rectangle.
- users should use @{screen:rect} instead
+ users should use <a href="../modules/screen.html#rect">screen.rect</a> instead
 
 
     <h3>Parameters:</h3>
@@ -613,6 +634,7 @@
 
     <h3>See also:</h3>
     <ul>
+         <a href="../modules/screen.html#rect">screen:rect</a>
     </ul>
 
 
@@ -623,7 +645,7 @@
     </dt>
     <dd>
     draws a filled rectangle.
- users should use @{screen:rect} instead
+ users should use <a href="../modules/screen.html#rect">screen.rect</a> instead
 
 
     <h3>Parameters:</h3>
@@ -646,6 +668,7 @@
 
     <h3>See also:</h3>
     <ul>
+         <a href="../modules/screen.html#rect">screen:rect</a>
     </ul>
 
 
@@ -656,7 +679,7 @@
     </dt>
     <dd>
     draws text to the screen.
- users should use @{screen:text} instead
+ users should use <a href="../modules/screen.html#text">screen.text</a> instead
 
 
     <h3>Parameters:</h3>
@@ -676,6 +699,7 @@
 
     <h3>See also:</h3>
     <ul>
+         <a href="../modules/screen.html#text">screen:text</a>
     </ul>
 
 
@@ -686,7 +710,7 @@
     </dt>
     <dd>
     sets screen color.
- users should use @{screen:color} instead
+ users should use <a href="../modules/screen.html#color">screen.color</a> instead
 
 
     <h3>Parameters:</h3>
@@ -709,6 +733,7 @@
 
     <h3>See also:</h3>
     <ul>
+         <a href="../modules/screen.html#color">screen:color</a>
     </ul>
 
 
@@ -719,7 +744,7 @@
     </dt>
     <dd>
     clears the screen.
- users should use @{screen:clear} instead
+ users should use <a href="../modules/screen.html#clear">screen.clear</a> instead
 
 
 
@@ -727,6 +752,7 @@
 
     <h3>See also:</h3>
     <ul>
+         <a href="../modules/screen.html#clear">screen:clear</a>
     </ul>
 
 
@@ -737,7 +763,7 @@
     </dt>
     <dd>
     starts a new metro.
- users should use @{metro:start} instead
+ users should use <a href="../modules/metro.html#metro:start">metro:start</a> instead
 
 
     <h3>Parameters:</h3>
@@ -760,6 +786,7 @@
 
     <h3>See also:</h3>
     <ul>
+         <a href="../modules/metro.html#metro:start">metro:start</a>
     </ul>
 
 
@@ -770,7 +797,7 @@
     </dt>
     <dd>
     stops a metro.
- users should use @{metro:stop} instead
+ users should use <a href="../modules/metro.html#metro:stop">metro:stop</a> instead
 
 
     <h3>Parameters:</h3>
@@ -784,6 +811,7 @@
 
     <h3>See also:</h3>
     <ul>
+         <a href="../modules/metro.html#metro:stop">metro:stop</a>
     </ul>
 
 
@@ -794,7 +822,7 @@
     </dt>
     <dd>
     set repetition time for a metro.
- users should use @{metro.time} instead
+ users can use the <code>time</code> field on a metro instead.
 
 
     <h3>Parameters:</h3>
@@ -809,9 +837,6 @@
 
 
 
-    <h3>See also:</h3>
-    <ul>
-    </ul>
 
 
 </dd>
@@ -836,7 +861,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
-<i style="float:right;">Last updated 2023-06-12 14:58:57 </i>
+<i style="float:right;">Last updated 2023-06-12 20:39:12 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

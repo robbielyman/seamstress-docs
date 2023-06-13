@@ -1,0 +1,361 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>seamstress</h1>
+
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/arc.html">arc</a></li>
+  <li><a href="../modules/grid.html">grid</a></li>
+  <li><a href="../modules/metro.html">metro</a></li>
+  <li><a href="../modules/osc.html">osc</a></li>
+  <li><strong>screen</strong></li>
+  <li><a href="../modules/vport.html">vport</a></li>
+  <li><a href="../modules/util.html">util</a></li>
+  <li><a href="../modules/_seamstress.html">_seamstress</a></li>
+</ul>
+<h2>Scripts</h2>
+<ul class="nowrap">
+  <li><a href="../scripts/config.lua.html">config.lua</a></li>
+  <li><a href="../scripts/seamstress.html">seamstress</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>screen</code></h1>
+<p>screen</p>
+<p>
+
+</p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#clear">clear ()</a></td>
+	<td class="summary">clears the screen.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#redraw">redraw ()</a></td>
+	<td class="summary">redraws the screen; reveals changes.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#color">color (r, g, b, a)</a></td>
+	<td class="summary">sets screen color.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pixel">pixel (x, y)</a></td>
+	<td class="summary">draws a single pixel.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#line">line (ax, ay, bx, by)</a></td>
+	<td class="summary">draws a line.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#rect">rect (x, y, w, h)</a></td>
+	<td class="summary">draws a rectangle.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#rect_fill">rect_fill (x, y, w, h)</a></td>
+	<td class="summary">draws a filled-in rectangle.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#text">text (x, y, text)</a></td>
+	<td class="summary">draws text to the screen.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#key">key (scancode)</a></td>
+	<td class="summary">callback executed when the user types a key into the gui window.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "clear"></a>
+    <strong>clear ()</strong>
+    </dt>
+    <dd>
+    clears the screen.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "redraw"></a>
+    <strong>redraw ()</strong>
+    </dt>
+    <dd>
+    redraws the screen; reveals changes.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "color"></a>
+    <strong>color (r, g, b, a)</strong>
+    </dt>
+    <dd>
+    sets screen color.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">r</span>
+            <span class="types"><span class="type">integer</span></span>
+         red value (0-255)
+        </li>
+        <li><span class="parameter">g</span>
+            <span class="types"><span class="type">integer</span></span>
+         green value (0-255)
+        </li>
+        <li><span class="parameter">b</span>
+            <span class="types"><span class="type">integer</span></span>
+         blue value (0-255)
+        </li>
+        <li><span class="parameter">a</span>
+            <span class="types"><span class="type">integer</span></span>
+         alpha value (0-255) (default 255)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pixel"></a>
+    <strong>pixel (x, y)</strong>
+    </dt>
+    <dd>
+    draws a single pixel.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">integer</span></span>
+         x-coordinate (1-based)
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">integer</span></span>
+         y-coordinate (1-based)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "line"></a>
+    <strong>line (ax, ay, bx, by)</strong>
+    </dt>
+    <dd>
+    draws a line.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ax</span>
+            <span class="types"><span class="type">integer</span></span>
+         source x-coordinate (1-based)
+        </li>
+        <li><span class="parameter">ay</span>
+            <span class="types"><span class="type">integer</span></span>
+         source y-coordinate (1-based)
+        </li>
+        <li><span class="parameter">bx</span>
+            <span class="types"><span class="type">integer</span></span>
+         target x-coordinate (1-based)
+        </li>
+        <li><span class="parameter">by</span>
+            <span class="types"><span class="type">integer</span></span>
+         target y-coordinate (1-based)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "rect"></a>
+    <strong>rect (x, y, w, h)</strong>
+    </dt>
+    <dd>
+    draws a rectangle.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">integer</span></span>
+         upper-left x-coordinate (1-based)
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">integer</span></span>
+         upper-left y-coordinate (1-based)
+        </li>
+        <li><span class="parameter">w</span>
+            <span class="types"><span class="type">integer</span></span>
+         width in pixels
+        </li>
+        <li><span class="parameter">h</span>
+            <span class="types"><span class="type">integer</span></span>
+         height in pixels
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "rect_fill"></a>
+    <strong>rect_fill (x, y, w, h)</strong>
+    </dt>
+    <dd>
+    draws a filled-in rectangle.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">integer</span></span>
+         upper-left x-coordinate (1-based)
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">integer</span></span>
+         upper-left y-coordinate (1-based)
+        </li>
+        <li><span class="parameter">w</span>
+            <span class="types"><span class="type">integer</span></span>
+         width in pixels
+        </li>
+        <li><span class="parameter">h</span>
+            <span class="types"><span class="type">integer</span></span>
+         height in pixels
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "text"></a>
+    <strong>text (x, y, text)</strong>
+    </dt>
+    <dd>
+    draws text to the screen.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">integer</span></span>
+         upper-left x-coordinate (1-based)
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">integer</span></span>
+         upper-left y-coordinate (1-based)
+        </li>
+        <li><span class="parameter">text</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
+         text to draw
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "key"></a>
+    <strong>key (scancode)</strong>
+    </dt>
+    <dd>
+    callback executed when the user types a key into the gui window.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">scancode</span>
+            <span class="types"><span class="type">integer</span></span>
+         ascii scancode
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2023-06-12 20:39:12 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>seamstress</h1>
+
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Class_metro">Class metro </a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/arc.html">arc</a></li>
+  <li><a href="../modules/grid.html">grid</a></li>
+  <li><strong>metro</strong></li>
+  <li><a href="../modules/osc.html">osc</a></li>
+  <li><a href="../modules/screen.html">screen</a></li>
+  <li><a href="../modules/vport.html">vport</a></li>
+  <li><a href="../modules/util.html">util</a></li>
+  <li><a href="../modules/_seamstress.html">_seamstress</a></li>
+</ul>
+<h2>Scripts</h2>
+<ul class="nowrap">
+  <li><a href="../scripts/config.lua.html">config.lua</a></li>
+  <li><a href="../scripts/seamstress.html">seamstress</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>metro</code></h1>
+<p>metro</p>
+<p>
+
+</p>
+
+
+<h2><a href="#Class_metro">Class metro </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Metro.num_metros">Metro.num_metros</a></td>
+	<td class="summary">constant representing the maximum number of metros.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#metro:init">metro:init (arg[, arg_time[, count]])</a></td>
+	<td class="summary">initialize a new metro if one is available</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#metro:free">metro:free (id)</a></td>
+	<td class="summary">free up a metro slot
+ also stops a metro</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#metro:start">metro:start (self, number[, count[, stage]])</a></td>
+	<td class="summary">starts a metro</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#metro:stop">metro:stop (self)</a></td>
+	<td class="summary">stops a metro</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header has-description"><a name="Class_metro"></a>Class metro </h2>
+
+          <div class="section-description">
+          metro object class
+          </div>
+    <dl class="function">
+    <dt>
+    <a name = "Metro.num_metros"></a>
+    <strong>Metro.num_metros</strong>
+    </dt>
+    <dd>
+    constant representing the maximum number of metros.
+ the actual number is hard-coded in zig,
+ so changing this value won't have any effect
+
+
+    <ul>
+        <li><span class="parameter">num_metros</span>
+         36
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "metro:init"></a>
+    <strong>metro:init (arg[, arg_time[, count]])</strong>
+    </dt>
+    <dd>
+    initialize a new metro if one is available
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">arg</span>
+            <span class="types"><span class="type">func</span> or <span class="type">{event=func,time=number,count=integer}</span></span>
+         either a function to be executed repeatedly, or a table of arguments
+        </li>
+        <li><span class="parameter">arg_time</span>
+            <span class="types"><span class="type">number</span></span>
+         time interval to execute the function; defaults to 1.0
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">count</span>
+            <span class="types"><span class="type">number</span></span>
+         if positive, the number of times to execute;
+ defaults to -1 (infinite repeats)
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types">optional <a class="type" href="../modules/metro.html#metro">metro</a></span>
+        metro if one if is available
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "metro:free"></a>
+    <strong>metro:free (id)</strong>
+    </dt>
+    <dd>
+    free up a metro slot
+ also stops a metro
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">id</span>
+            <span class="types"><span class="type">integer</span></span>
+         (1-36)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "metro:start"></a>
+    <strong>metro:start (self, number[, count[, stage]])</strong>
+    </dt>
+    <dd>
+    starts a metro
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+            <span class="types"><a class="type" href="../modules/metro.html#metro">metro</a></span>
+         metro
+        </li>
+        <li><span class="parameter">number</span>
+            <span class="types"><span class="type">time</span></span>
+        |{time=number,count=integer,stage=integer}
+ either a table of arguments or a (fractional) time interval in seconds
+        </li>
+        <li><span class="parameter">count</span>
+            <span class="types"><span class="type">integer</span></span>
+         stage to stop at (defaults to -1: infinite)
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">stage</span>
+            <span class="types"><span class="type">integer</span></span>
+         stage to start at
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "metro:stop"></a>
+    <strong>metro:stop (self)</strong>
+    </dt>
+    <dd>
+    stops a metro
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+            <span class="types"><a class="type" href="../modules/metro.html#metro">metro</a></span>
+         metro
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2023-06-12 20:39:12 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
