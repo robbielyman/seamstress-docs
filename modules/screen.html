@@ -42,9 +42,11 @@
   <li><a href="../modules/arc.html">arc</a></li>
   <li><a href="../modules/clock.html">clock</a></li>
   <li><a href="../modules/grid.html">grid</a></li>
+  <li><a href="../modules/keycodes.html">keycodes</a></li>
   <li><a href="../modules/metro.html">metro</a></li>
   <li><a href="../modules/midi.html">midi</a></li>
   <li><a href="../modules/osc.html">osc</a></li>
+  <li><a href="../modules/paramset.html">paramset</a></li>
   <li><strong>screen</strong></li>
   <li><a href="../modules/vport.html">vport</a></li>
   <li><a href="../modules/util.html">util</a></li>
@@ -74,7 +76,15 @@
 	<td class="summary">clears the screen.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#redraw">redraw ()</a></td>
+	<td class="name" nowrap><a href="#set">set (value)</a></td>
+	<td class="summary">sets the screen which will be affected by following screen calls.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#reset">reset ()</a></td>
+	<td class="summary">resets which screen will be affected by future screen calls.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#refresh">refresh ()</a></td>
 	<td class="summary">redraws the screen; reveals changes.</td>
 	</tr>
 	<tr>
@@ -102,8 +112,28 @@
 	<td class="summary">draws text to the screen.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#key">key (scancode)</a></td>
+	<td class="name" nowrap><a href="#get_text_size">get_text_size (text)</a></td>
+	<td class="summary">gets size of text.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Screen.">Screen. ()</a></td>
+	<td class="summary">returns the size of the current window.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#key">key (char, modifiers, is_repeat, state, window)</a></td>
 	<td class="summary">callback executed when the user types a key into the gui window.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#mouse">mouse (x, y, window)</a></td>
+	<td class="summary">callback executed when the user moves the mouse with the gui window focused.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#click">click (x, y, state, button, window)</a></td>
+	<td class="summary">callback executed when the user clicks the mouse on the gui window.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#resized">resized (x, y, window)</a></td>
+	<td class="summary">callback executed when the user resizes a window</td>
 	</tr>
 </table>
 
@@ -129,8 +159,44 @@
 
 </dd>
     <dt>
-    <a name = "redraw"></a>
-    <strong>redraw ()</strong>
+    <a name = "set"></a>
+    <strong>set (value)</strong>
+    </dt>
+    <dd>
+    sets the screen which will be affected by following screen calls.
+ call <a href="../modules/screen.html#reset">screen.reset</a> to return to the previous state.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">value</span>
+            <span class="types"><span class="type">integer</span></span>
+         1 (gui) or 2 (params)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "reset"></a>
+    <strong>reset ()</strong>
+    </dt>
+    <dd>
+    resets which screen will be affected by future screen calls.
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "refresh"></a>
+    <strong>refresh ()</strong>
     </dt>
     <dd>
     redraws the screen; reveals changes.
@@ -329,8 +395,61 @@
 
 </dd>
     <dt>
+    <a name = "get_text_size"></a>
+    <strong>get_text_size (text)</strong>
+    </dt>
+    <dd>
+    gets size of text.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">text</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
+         text to size
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">integer</span></span>
+        w width in pixels</li>
+        <li>
+           <span class="types"><span class="type">integer</span></span>
+        h height in pixels</li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Screen."></a>
+    <strong>Screen. ()</strong>
+    </dt>
+    <dd>
+    returns the size of the current window.
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">integer</span></span>
+        w width in pixels</li>
+        <li>
+           <span class="types"><span class="type">integer</span></span>
+        h height in pixels</li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "key"></a>
-    <strong>key (scancode)</strong>
+    <strong>key (char, modifiers, is_repeat, state, window)</strong>
     </dt>
     <dd>
     callback executed when the user types a key into the gui window.
@@ -338,9 +457,120 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">scancode</span>
+        <li><span class="parameter">char</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a> or <a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span>
+         either the character or a table of the form {name = "name"}
+        </li>
+        <li><span class="parameter">modifiers</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span>
+         a table with the names of modifier keys pressed down
+        </li>
+        <li><span class="parameter">is_repeat</span>
+            <span class="types"><span class="type">bool</span></span>
+         true if the key is a repeat event
+        </li>
+        <li><span class="parameter">state</span>
             <span class="types"><span class="type">integer</span></span>
-         ascii scancode
+         1 for a press, 0 for release
+        </li>
+        <li><span class="parameter">window</span>
+            <span class="types"><span class="type">integer</span></span>
+         1 for the main window, 2 for the params window
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "mouse"></a>
+    <strong>mouse (x, y, window)</strong>
+    </dt>
+    <dd>
+    callback executed when the user moves the mouse with the gui window focused.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">integer</span></span>
+         x-coordinate
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">integer</span></span>
+         y-coordinate
+        </li>
+        <li><span class="parameter">window</span>
+            <span class="types"><span class="type">integer</span></span>
+         1 for the main window, 2 for the params window
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "click"></a>
+    <strong>click (x, y, state, button, window)</strong>
+    </dt>
+    <dd>
+    callback executed when the user clicks the mouse on the gui window.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">integer</span></span>
+         x-coordinate
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">integer</span></span>
+         y-coordinate
+        </li>
+        <li><span class="parameter">state</span>
+            <span class="types"><span class="type">integer</span></span>
+         1 for a press, 0 for release
+        </li>
+        <li><span class="parameter">button</span>
+            <span class="types"><span class="type">integer</span></span>
+         bitmask for which button was pressed
+        </li>
+        <li><span class="parameter">window</span>
+            <span class="types"><span class="type">integer</span></span>
+         1 for the main window, 2 for the params window
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "resized"></a>
+    <strong>resized (x, y, window)</strong>
+    </dt>
+    <dd>
+    callback executed when the user resizes a window
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">integer</span></span>
+         new x size
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">integer</span></span>
+         new y size
+        </li>
+        <li><span class="parameter">window</span>
+            <span class="types"><span class="type">integer</span></span>
+         1 for the main window, 2 for the params window
         </li>
     </ul>
 
@@ -356,7 +586,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
-<i style="float:right;">Last updated 2023-06-16 22:10:14 </i>
+<i style="float:right;">Last updated 2023-06-23 18:31:50 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
