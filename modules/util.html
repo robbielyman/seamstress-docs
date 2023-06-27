@@ -41,14 +41,17 @@
 <ul class="nowrap">
   <li><a href="../modules/arc.html">arc</a></li>
   <li><a href="../modules/clock.html">clock</a></li>
+  <li><a href="../modules/controlspec.html">controlspec</a></li>
   <li><a href="../modules/grid.html">grid</a></li>
   <li><a href="../modules/keycodes.html">keycodes</a></li>
   <li><a href="../modules/metro.html">metro</a></li>
   <li><a href="../modules/midi.html">midi</a></li>
   <li><a href="../modules/osc.html">osc</a></li>
   <li><a href="../modules/paramset.html">paramset</a></li>
+  <li><a href="../modules/params.control.html">params.control</a></li>
   <li><a href="../modules/screen.html">screen</a></li>
   <li><a href="../modules/vport.html">vport</a></li>
+  <li><a href="../modules/tab.html">tab</a></li>
   <li><strong>util</strong></li>
   <li><a href="../modules/seamstress.html">seamstress</a></li>
 </ul>
@@ -76,6 +79,26 @@
 	<td class="summary">check whether a file exists</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#Util.clamp">Util.clamp (n, min, max)</a></td>
+	<td class="summary">clamp values to min max.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Util.linexp">Util.linexp (slo, shi, dlo, dhi, f)</a></td>
+	<td class="summary">convert a linear range to an exponential range</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Util.linlin">Util.linlin (slo, shi, dlo, dhi, f)</a></td>
+	<td class="summary">map a linear range to another linear range.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Util.explin">Util.explin (slo, shi, dlo, dhi, f)</a></td>
+	<td class="summary">convert an exponential range to a linear range.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Util.expexp">Util.expexp (slo, shi, dlo, dhi, f)</a></td>
+	<td class="summary">map an exponential range to another exponential range.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#round">round (number, quant)</a></td>
 	<td class="summary">round a number with optional quantization</td>
 	</tr>
@@ -86,6 +109,10 @@
 	<tr>
 	<td class="name" nowrap><a href="#os_capture">os_capture (cmd[, raw])</a></td>
 	<td class="summary">execute OS command</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Util.acronym">Util.acronym (name)</a></td>
+	<td class="summary">convert string to acronym</td>
 	</tr>
 </table>
 
@@ -112,6 +139,221 @@
         </li>
     </ul>
 
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Util.clamp"></a>
+    <strong>Util.clamp (n, min, max)</strong>
+    </dt>
+    <dd>
+    clamp values to min max.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">n</span>
+            <span class="types"><span class="type">number</span></span>
+         value
+        </li>
+        <li><span class="parameter">min</span>
+            <span class="types"><span class="type">number</span></span>
+         minimum
+        </li>
+        <li><span class="parameter">max</span>
+            <span class="types"><span class="type">number</span></span>
+         maximum
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        clamped value
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Util.linexp"></a>
+    <strong>Util.linexp (slo, shi, dlo, dhi, f)</strong>
+    </dt>
+    <dd>
+    convert a linear range to an exponential range
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">slo</span>
+            <span class="types"><span class="type">number</span></span>
+         lower limit of input range
+        </li>
+        <li><span class="parameter">shi</span>
+            <span class="types"><span class="type">number</span></span>
+         upper limit of input range
+        </li>
+        <li><span class="parameter">dlo</span>
+            <span class="types"><span class="type">number</span></span>
+         lower limit of output range (must be non-zero and of the same sign as dhi)
+        </li>
+        <li><span class="parameter">dhi</span>
+            <span class="types"><span class="type">number</span></span>
+         upper limit of output range (must be non-zero and of the same sign as dlo)
+        </li>
+        <li><span class="parameter">f</span>
+            <span class="types"><span class="type">number</span></span>
+         input to convert
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Util.linlin"></a>
+    <strong>Util.linlin (slo, shi, dlo, dhi, f)</strong>
+    </dt>
+    <dd>
+    map a linear range to another linear range.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">slo</span>
+            <span class="types"><span class="type">number</span></span>
+         lower limit of input range
+        </li>
+        <li><span class="parameter">shi</span>
+            <span class="types"><span class="type">number</span></span>
+         upper limit of input range
+        </li>
+        <li><span class="parameter">dlo</span>
+            <span class="types"><span class="type">number</span></span>
+         lower limit of output range
+        </li>
+        <li><span class="parameter">dhi</span>
+            <span class="types"><span class="type">number</span></span>
+         upper limit of output range
+        </li>
+        <li><span class="parameter">f</span>
+            <span class="types"><span class="type">number</span></span>
+         input to convert
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Util.explin"></a>
+    <strong>Util.explin (slo, shi, dlo, dhi, f)</strong>
+    </dt>
+    <dd>
+    convert an exponential range to a linear range.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">slo</span>
+            <span class="types"><span class="type">number</span></span>
+         lower limit of input range (must be non-zero and of the same sign as shi)
+        </li>
+        <li><span class="parameter">shi</span>
+            <span class="types"><span class="type">number</span></span>
+         upper limit of input range (must be non-zero and of the same sign as slo)
+        </li>
+        <li><span class="parameter">dlo</span>
+            <span class="types"><span class="type">number</span></span>
+         lower limit of output range
+        </li>
+        <li><span class="parameter">dhi</span>
+            <span class="types"><span class="type">number</span></span>
+         upper limit of output range
+        </li>
+        <li><span class="parameter">f</span>
+            <span class="types"><span class="type">number</span></span>
+         input to convert
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Util.expexp"></a>
+    <strong>Util.expexp (slo, shi, dlo, dhi, f)</strong>
+    </dt>
+    <dd>
+    map an exponential range to another exponential range.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">slo</span>
+            <span class="types"><span class="type">number</span></span>
+         lower limit of input range (must be non-zero and of the same sign as shi)
+        </li>
+        <li><span class="parameter">shi</span>
+            <span class="types"><span class="type">number</span></span>
+         upper limit of input range (must be non-zero and of the same sign as slo)
+        </li>
+        <li><span class="parameter">dlo</span>
+            <span class="types"><span class="type">number</span></span>
+         lower limit of output range (must be non-zero and of the same sign as dhi)
+        </li>
+        <li><span class="parameter">dhi</span>
+            <span class="types"><span class="type">number</span></span>
+         upper limit of output range (must be non-zero and of the same sign as dlo)
+        </li>
+        <li><span class="parameter">f</span>
+            <span class="types"><span class="type">number</span></span>
+         input to convert
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+
+
+
+    </ol>
 
 
 
@@ -188,6 +430,35 @@
 
 
 </dd>
+    <dt>
+    <a name = "Util.acronym"></a>
+    <strong>Util.acronym (name)</strong>
+    </dt>
+    <dd>
+    convert string to acronym
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
+
+
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
+        acronym
+    </ol>
+
+
+
+
+</dd>
 </dl>
 
 
@@ -195,7 +466,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
-<i style="float:right;">Last updated 2023-06-23 18:31:50 </i>
+<i style="float:right;">Last updated 2023-06-26 23:24:53 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

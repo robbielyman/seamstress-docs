@@ -1,0 +1,340 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>seamstress</h1>
+
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/arc.html">arc</a></li>
+  <li><a href="../modules/clock.html">clock</a></li>
+  <li><a href="../modules/controlspec.html">controlspec</a></li>
+  <li><a href="../modules/grid.html">grid</a></li>
+  <li><a href="../modules/keycodes.html">keycodes</a></li>
+  <li><a href="../modules/metro.html">metro</a></li>
+  <li><a href="../modules/midi.html">midi</a></li>
+  <li><a href="../modules/osc.html">osc</a></li>
+  <li><a href="../modules/paramset.html">paramset</a></li>
+  <li><a href="../modules/params.control.html">params.control</a></li>
+  <li><a href="../modules/screen.html">screen</a></li>
+  <li><a href="../modules/vport.html">vport</a></li>
+  <li><strong>tab</strong></li>
+  <li><a href="../modules/util.html">util</a></li>
+  <li><a href="../modules/seamstress.html">seamstress</a></li>
+</ul>
+<h2>Scripts</h2>
+<ul class="nowrap">
+  <li><a href="../scripts/config.lua.html">config.lua</a></li>
+  <li><a href="../scripts/seamstress.html">seamstress</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>tab</code></h1>
+<p>table utility</p>
+<p>
+
+</p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Tab.print">Tab.print (t)</a></td>
+	<td class="summary">print the contents of a table</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Tab.sort">Tab.sort (t)</a></td>
+	<td class="summary">return a lexigraphically sorted array of keys for a table</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Tab.count">Tab.count (t)</a></td>
+	<td class="summary">count the number of entries in a table;
+ unlike table.getn() or #table, nil entries won't break the loop</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Tab.contains">Tab.contains (t, e)</a></td>
+	<td class="summary">search table for element</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Tab.invert">Tab.invert (t)</a></td>
+	<td class="summary">given a simple table of primitives,
+ "invert" it so that values become keys and vice versa.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Tab.key">Tab.key (t, e)</a></td>
+	<td class="summary">search table for element, return key</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Tab.lines">Tab.lines (str)</a></td>
+	<td class="summary">split multi-line string into table of strings</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Tab.split">Tab.split (inputstr, sep)</a></td>
+	<td class="summary">split string into table with delimiter</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Tab.print"></a>
+    <strong>Tab.print (t)</strong>
+    </dt>
+    <dd>
+    print the contents of a table
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">t</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span>
+         table to print
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Tab.sort"></a>
+    <strong>Tab.sort (t)</strong>
+    </dt>
+    <dd>
+    return a lexigraphically sorted array of keys for a table
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">t</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span>
+         table to sort
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span>
+        sorted table
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Tab.count"></a>
+    <strong>Tab.count (t)</strong>
+    </dt>
+    <dd>
+    count the number of entries in a table;
+ unlike table.getn() or #table, nil entries won't break the loop
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">t</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span>
+         table to count
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        count
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Tab.contains"></a>
+    <strong>Tab.contains (t, e)</strong>
+    </dt>
+    <dd>
+    search table for element
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">t</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span>
+         table to check
+        </li>
+        <li><span class="parameter">e</span>
+         element to look for
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        t/f is element is present
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Tab.invert"></a>
+    <strong>Tab.invert (t)</strong>
+    </dt>
+    <dd>
+    given a simple table of primitives,
+ "invert" it so that values become keys and vice versa.
+ this allows more efficient checks on multiple values
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">t</span>
+         a simple table
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Tab.key"></a>
+    <strong>Tab.key (t, e)</strong>
+    </dt>
+    <dd>
+    search table for element, return key
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">t</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span>
+         table to check
+        </li>
+        <li><span class="parameter">e</span>
+         element to look for
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        key, nil if not found
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Tab.lines"></a>
+    <strong>Tab.lines (str)</strong>
+    </dt>
+    <dd>
+    split multi-line string into table of strings
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">str</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
+         string with line breaks
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span>
+        table with entries for each line
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Tab.split"></a>
+    <strong>Tab.split (inputstr, sep)</strong>
+    </dt>
+    <dd>
+    split string into table with delimiter
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">inputstr</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
+         : string to split
+        </li>
+        <li><span class="parameter">sep</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
+         : delimiter
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2023-06-26 23:24:53 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
