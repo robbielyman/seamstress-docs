@@ -91,6 +91,14 @@
 	<td class="summary">redraws the screen; reveals changes.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#move">move (x, y)</a></td>
+	<td class="summary">move the current position.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#move_rel">move_rel (x, y)</a></td>
+	<td class="summary">move the current position with relative coordinates.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#color">color (r, g, b, a)</a></td>
 	<td class="summary">sets screen color.</td>
 	</tr>
@@ -99,19 +107,51 @@
 	<td class="summary">draws a single pixel.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#line">line (ax, ay, bx, by)</a></td>
+	<td class="name" nowrap><a href="#pixel_rel">pixel_rel ()</a></td>
+	<td class="summary">draws a single pixel at the current coordinate.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#line">line (bx, by)</a></td>
 	<td class="summary">draws a line.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#rect">rect (x, y, w, h)</a></td>
+	<td class="name" nowrap><a href="#line_rel">line_rel (bx, by)</a></td>
+	<td class="summary">draws a line relative to the current coordinates.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#rect">rect (w, h)</a></td>
 	<td class="summary">draws a rectangle.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#rect_fill">rect_fill (x, y, w, h)</a></td>
+	<td class="name" nowrap><a href="#rect_fill">rect_fill (w, h)</a></td>
 	<td class="summary">draws a filled-in rectangle.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#text">text (x, y, text)</a></td>
+	<td class="name" nowrap><a href="#arc">arc (radius, theta_1, theta_2)</a></td>
+	<td class="summary">draws a circle arc centered at the current position.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#circle">circle (radius)</a></td>
+	<td class="summary">draws a circle centered at the current position.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#sector">sector (radius, theta_1, theta_2)</a></td>
+	<td class="summary">draws a filled circle arc centered at the current position.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#circle_fill">circle_fill (radius)</a></td>
+	<td class="summary">draws a circle centered at the current position.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#text">text (text)</a></td>
+	<td class="summary">draws text to the screen.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#text_center">text_center (text)</a></td>
+	<td class="summary">draws text to the screen.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#text_right">text_right (text)</a></td>
 	<td class="summary">draws text to the screen.</td>
 	</tr>
 	<tr>
@@ -119,19 +159,19 @@
 	<td class="summary">gets size of text.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Screen.">Screen. ()</a></td>
+	<td class="name" nowrap><a href="#get_size">get_size ()</a></td>
 	<td class="summary">returns the size of the current window.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#key">key (char, modifiers, is_repeat, state, window)</a></td>
+	<td class="name" nowrap><a href="#key">key (char, modifiers, is_repeat, state)</a></td>
 	<td class="summary">callback executed when the user types a key into the gui window.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#mouse">mouse (x, y, window)</a></td>
+	<td class="name" nowrap><a href="#mouse">mouse (x, y)</a></td>
 	<td class="summary">callback executed when the user moves the mouse with the gui window focused.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#click">click (x, y, state, button, window)</a></td>
+	<td class="name" nowrap><a href="#click">click (x, y, state, button)</a></td>
 	<td class="summary">callback executed when the user clicks the mouse on the gui window.</td>
 	</tr>
 	<tr>
@@ -212,6 +252,56 @@
 
 </dd>
     <dt>
+    <a name = "move"></a>
+    <strong>move (x, y)</strong>
+    </dt>
+    <dd>
+    move the current position.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">integer</span></span>
+         target x-coordinate (1-based)
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">integer</span></span>
+         target y-coordinate (1-based)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "move_rel"></a>
+    <strong>move_rel (x, y)</strong>
+    </dt>
+    <dd>
+    move the current position with relative coordinates.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">integer</span></span>
+         relative target x-coordinate
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">integer</span></span>
+         relative target y-coordinate
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
     <a name = "color"></a>
     <strong>color (r, g, b, a)</strong>
     </dt>
@@ -270,8 +360,22 @@
 
 </dd>
     <dt>
+    <a name = "pixel_rel"></a>
+    <strong>pixel_rel ()</strong>
+    </dt>
+    <dd>
+    draws a single pixel at the current coordinate.
+
+
+
+
+
+
+
+</dd>
+    <dt>
     <a name = "line"></a>
-    <strong>line (ax, ay, bx, by)</strong>
+    <strong>line (bx, by)</strong>
     </dt>
     <dd>
     draws a line.
@@ -279,14 +383,6 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">ax</span>
-            <span class="types"><span class="type">integer</span></span>
-         source x-coordinate (1-based)
-        </li>
-        <li><span class="parameter">ay</span>
-            <span class="types"><span class="type">integer</span></span>
-         source y-coordinate (1-based)
-        </li>
         <li><span class="parameter">bx</span>
             <span class="types"><span class="type">integer</span></span>
          target x-coordinate (1-based)
@@ -303,8 +399,33 @@
 
 </dd>
     <dt>
+    <a name = "line_rel"></a>
+    <strong>line_rel (bx, by)</strong>
+    </dt>
+    <dd>
+    draws a line relative to the current coordinates.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">bx</span>
+            <span class="types"><span class="type">integer</span></span>
+         target relative x-coordinate
+        </li>
+        <li><span class="parameter">by</span>
+            <span class="types"><span class="type">integer</span></span>
+         target relative y-coordinate
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
     <a name = "rect"></a>
-    <strong>rect (x, y, w, h)</strong>
+    <strong>rect (w, h)</strong>
     </dt>
     <dd>
     draws a rectangle.
@@ -312,14 +433,6 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">x</span>
-            <span class="types"><span class="type">integer</span></span>
-         upper-left x-coordinate (1-based)
-        </li>
-        <li><span class="parameter">y</span>
-            <span class="types"><span class="type">integer</span></span>
-         upper-left y-coordinate (1-based)
-        </li>
         <li><span class="parameter">w</span>
             <span class="types"><span class="type">integer</span></span>
          width in pixels
@@ -337,7 +450,7 @@
 </dd>
     <dt>
     <a name = "rect_fill"></a>
-    <strong>rect_fill (x, y, w, h)</strong>
+    <strong>rect_fill (w, h)</strong>
     </dt>
     <dd>
     draws a filled-in rectangle.
@@ -345,14 +458,6 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">x</span>
-            <span class="types"><span class="type">integer</span></span>
-         upper-left x-coordinate (1-based)
-        </li>
-        <li><span class="parameter">y</span>
-            <span class="types"><span class="type">integer</span></span>
-         upper-left y-coordinate (1-based)
-        </li>
         <li><span class="parameter">w</span>
             <span class="types"><span class="type">integer</span></span>
          width in pixels
@@ -369,8 +474,114 @@
 
 </dd>
     <dt>
+    <a name = "arc"></a>
+    <strong>arc (radius, theta_1, theta_2)</strong>
+    </dt>
+    <dd>
+    draws a circle arc centered at the current position.
+ angles are measured in radians and proceed clockwise
+ with 0 pointing to the right. We should have
+ <code>0 &lt;= theta_1 &lt;= theta_2 &lt;= 2 * pi</code>
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">radius</span>
+            <span class="types"><span class="type">integer</span></span>
+         in pixels
+        </li>
+        <li><span class="parameter">theta_1</span>
+            <span class="types"><span class="type">number</span></span>
+         initial angle in radians.
+        </li>
+        <li><span class="parameter">theta_2</span>
+            <span class="types"><span class="type">number</span></span>
+         terminal angle in radians.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "circle"></a>
+    <strong>circle (radius)</strong>
+    </dt>
+    <dd>
+    draws a circle centered at the current position.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">radius</span>
+            <span class="types"><span class="type">integer</span></span>
+         in pixels
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "sector"></a>
+    <strong>sector (radius, theta_1, theta_2)</strong>
+    </dt>
+    <dd>
+    draws a filled circle arc centered at the current position.
+ angles are measured in radians and proceed clockwise
+ with 0 pointing to the right. We should have
+ <code>0 &lt;= theta_1 &lt;= theta_2 &lt;= 2 * pi</code>
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">radius</span>
+            <span class="types"><span class="type">integer</span></span>
+         in pixels
+        </li>
+        <li><span class="parameter">theta_1</span>
+            <span class="types"><span class="type">number</span></span>
+         initial angle in radians.
+        </li>
+        <li><span class="parameter">theta_2</span>
+            <span class="types"><span class="type">number</span></span>
+         terminal angle in radians.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "circle_fill"></a>
+    <strong>circle_fill (radius)</strong>
+    </dt>
+    <dd>
+    draws a circle centered at the current position.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">radius</span>
+            <span class="types"><span class="type">integer</span></span>
+         in pixels
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
     <a name = "text"></a>
-    <strong>text (x, y, text)</strong>
+    <strong>text (text)</strong>
     </dt>
     <dd>
     draws text to the screen.
@@ -378,14 +589,48 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">x</span>
-            <span class="types"><span class="type">integer</span></span>
-         upper-left x-coordinate (1-based)
+        <li><span class="parameter">text</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
+         text to draw
         </li>
-        <li><span class="parameter">y</span>
-            <span class="types"><span class="type">integer</span></span>
-         upper-left y-coordinate (1-based)
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "text_center"></a>
+    <strong>text_center (text)</strong>
+    </dt>
+    <dd>
+    draws text to the screen.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">text</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
+         text to draw
         </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "text_right"></a>
+    <strong>text_right (text)</strong>
+    </dt>
+    <dd>
+    draws text to the screen.
+
+
+    <h3>Parameters:</h3>
+    <ul>
         <li><span class="parameter">text</span>
             <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
          text to draw
@@ -428,8 +673,8 @@
 
 </dd>
     <dt>
-    <a name = "Screen."></a>
-    <strong>Screen. ()</strong>
+    <a name = "get_size"></a>
+    <strong>get_size ()</strong>
     </dt>
     <dd>
     returns the size of the current window.
@@ -452,7 +697,7 @@
 </dd>
     <dt>
     <a name = "key"></a>
-    <strong>key (char, modifiers, is_repeat, state, window)</strong>
+    <strong>key (char, modifiers, is_repeat, state)</strong>
     </dt>
     <dd>
     callback executed when the user types a key into the gui window.
@@ -476,10 +721,6 @@
             <span class="types"><span class="type">integer</span></span>
          1 for a press, 0 for release
         </li>
-        <li><span class="parameter">window</span>
-            <span class="types"><span class="type">integer</span></span>
-         1 for the main window, 2 for the params window
-        </li>
     </ul>
 
 
@@ -489,7 +730,7 @@
 </dd>
     <dt>
     <a name = "mouse"></a>
-    <strong>mouse (x, y, window)</strong>
+    <strong>mouse (x, y)</strong>
     </dt>
     <dd>
     callback executed when the user moves the mouse with the gui window focused.
@@ -505,10 +746,6 @@
             <span class="types"><span class="type">integer</span></span>
          y-coordinate
         </li>
-        <li><span class="parameter">window</span>
-            <span class="types"><span class="type">integer</span></span>
-         1 for the main window, 2 for the params window
-        </li>
     </ul>
 
 
@@ -518,7 +755,7 @@
 </dd>
     <dt>
     <a name = "click"></a>
-    <strong>click (x, y, state, button, window)</strong>
+    <strong>click (x, y, state, button)</strong>
     </dt>
     <dd>
     callback executed when the user clicks the mouse on the gui window.
@@ -541,10 +778,6 @@
         <li><span class="parameter">button</span>
             <span class="types"><span class="type">integer</span></span>
          bitmask for which button was pressed
-        </li>
-        <li><span class="parameter">window</span>
-            <span class="types"><span class="type">integer</span></span>
-         1 for the main window, 2 for the params window
         </li>
     </ul>
 
@@ -589,7 +822,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
-<i style="float:right;">Last updated 2023-06-26 23:24:53 </i>
+<i style="float:right;">Last updated 2023-06-27 17:03:50 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

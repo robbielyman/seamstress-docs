@@ -131,24 +131,56 @@
 	<td class="summary">refreshes the screen.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#screen_move">screen_move (x, y)</a></td>
+	<td class="summary">moves the current location on the screen.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#screen_move_rel">screen_move_rel (x, y)</a></td>
+	<td class="summary">moves the current location on the screen relative to the current location.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#screen_pixel">screen_pixel (x, y)</a></td>
 	<td class="summary">draws a single pixel.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#screen_line">screen_line (ax, ay, bx, by)</a></td>
+	<td class="name" nowrap><a href="#screen_pixel_rel">screen_pixel_rel ()</a></td>
+	<td class="summary">draws a single pixel at the current location.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#screen_line">screen_line (bx, by)</a></td>
 	<td class="summary">draws a line.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#screen_rect">screen_rect (x, y, w, h)</a></td>
+	<td class="name" nowrap><a href="#screen_line_rel">screen_line_rel (bx, by)</a></td>
+	<td class="summary">draws a line relative to the current location.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#screen_rect">screen_rect (w, h)</a></td>
 	<td class="summary">draws a rectangle.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#screen_rect_fill">screen_rect_fill (x, y, w, h)</a></td>
+	<td class="name" nowrap><a href="#screen_rect_fill">screen_rect_fill (w, h)</a></td>
 	<td class="summary">draws a filled rectangle.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#screen_text">screen_text (x, y, words)</a></td>
-	<td class="summary">draws text to the screen.</td>
+	<td class="name" nowrap><a href="#screen_text">screen_text (words)</a></td>
+	<td class="summary">draws text to the screen, left-aligned.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#screen_text_center">screen_text_center (words)</a></td>
+	<td class="summary">draws text to the screen, center-aligned.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#screen_text_right">screen_text_right (words)</a></td>
+	<td class="summary">draws text to the screen, right-aligned.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#screen_arc">screen_arc (radius, theta_1, theta_2)</a></td>
+	<td class="summary">draws a circle arc to the screen.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#screen_sector">screen_sector (radius, theta_1, theta_2)</a></td>
+	<td class="summary">draws a filled-in circle arc to the screen.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#screen_color">screen_color (r, g, b, a)</a></td>
@@ -603,6 +635,62 @@
 
 </dd>
     <dt>
+    <a name = "screen_move"></a>
+    <strong>screen_move (x, y)</strong>
+    </dt>
+    <dd>
+    moves the current location on the screen.
+ users should use <a href="../modules/screen.html#move">screen.move</a> instead
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+         x-coordinate (1-based)
+        </li>
+        <li><span class="parameter">y</span>
+         y-coordinate (1-based)
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/screen.html#move">screen.move</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "screen_move_rel"></a>
+    <strong>screen_move_rel (x, y)</strong>
+    </dt>
+    <dd>
+    moves the current location on the screen relative to the current location.
+ users should use <a href="../modules/screen.html#move_rel">screen.move_rel</a> instead
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+         relative x-coordinate
+        </li>
+        <li><span class="parameter">y</span>
+         relative y-coordinate
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/screen.html#move_rel">screen.move_rel</a>
+    </ul>
+
+
+</dd>
+    <dt>
     <a name = "screen_pixel"></a>
     <strong>screen_pixel (x, y)</strong>
     </dt>
@@ -625,14 +713,33 @@
 
     <h3>See also:</h3>
     <ul>
-         <a href="../modules/screen.html#pixel">screen:pixel</a>
+         <a href="../modules/screen.html#pixel">screen.pixel</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "screen_pixel_rel"></a>
+    <strong>screen_pixel_rel ()</strong>
+    </dt>
+    <dd>
+    draws a single pixel at the current location.
+ users should use <a href="../modules/screen.html#pixel_rel">screen.pixel_rel</a> instead
+
+
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/screen.html#pixel_rel">screen.pixel_rel</a>
     </ul>
 
 
 </dd>
     <dt>
     <a name = "screen_line"></a>
-    <strong>screen_line (ax, ay, bx, by)</strong>
+    <strong>screen_line (bx, by)</strong>
     </dt>
     <dd>
     draws a line.
@@ -641,12 +748,6 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">ax</span>
-         initial x-coordinate (1-based)
-        </li>
-        <li><span class="parameter">ay</span>
-         initial y-coordinate (1-based)
-        </li>
         <li><span class="parameter">bx</span>
          terminal x-coordinate (1-based)
         </li>
@@ -659,14 +760,42 @@
 
     <h3>See also:</h3>
     <ul>
-         <a href="../modules/screen.html#line">screen:line</a>
+         <a href="../modules/screen.html#line">screen.line</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "screen_line_rel"></a>
+    <strong>screen_line_rel (bx, by)</strong>
+    </dt>
+    <dd>
+    draws a line relative to the current location.
+ users should use <a href="../modules/screen.html#line_rel">screen.line_rel</a> instead
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">bx</span>
+         terminal relative x-coordinate
+        </li>
+        <li><span class="parameter">by</span>
+         terminal relative y-coordinate
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/screen.html#line_rel">screen.line_rel</a>
     </ul>
 
 
 </dd>
     <dt>
     <a name = "screen_rect"></a>
-    <strong>screen_rect (x, y, w, h)</strong>
+    <strong>screen_rect (w, h)</strong>
     </dt>
     <dd>
     draws a rectangle.
@@ -675,12 +804,6 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">x</span>
-         upper-left x-coordinate (1-based)
-        </li>
-        <li><span class="parameter">y</span>
-         upper-left x-coordinate (1-based)
-        </li>
         <li><span class="parameter">w</span>
          width in pixels
         </li>
@@ -700,7 +823,7 @@
 </dd>
     <dt>
     <a name = "screen_rect_fill"></a>
-    <strong>screen_rect_fill (x, y, w, h)</strong>
+    <strong>screen_rect_fill (w, h)</strong>
     </dt>
     <dd>
     draws a filled rectangle.
@@ -709,12 +832,6 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">x</span>
-         upper-left x-coordinate (1-based)
-        </li>
-        <li><span class="parameter">y</span>
-         upper-left x-coordinate (1-based)
-        </li>
         <li><span class="parameter">w</span>
          width in pixels
         </li>
@@ -734,21 +851,15 @@
 </dd>
     <dt>
     <a name = "screen_text"></a>
-    <strong>screen_text (x, y, words)</strong>
+    <strong>screen_text (words)</strong>
     </dt>
     <dd>
-    draws text to the screen.
+    draws text to the screen, left-aligned.
  users should use <a href="../modules/screen.html#text">screen.text</a> instead
 
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">x</span>
-         upper-left x-coordinate (1-based)
-        </li>
-        <li><span class="parameter">y</span>
-         upper-left y-coordinate (1-based)
-        </li>
         <li><span class="parameter">words</span>
          text to draw to the screen
         </li>
@@ -758,7 +869,119 @@
 
     <h3>See also:</h3>
     <ul>
-         <a href="../modules/screen.html#text">screen:text</a>
+         <a href="../modules/screen.html#text">screen.text</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "screen_text_center"></a>
+    <strong>screen_text_center (words)</strong>
+    </dt>
+    <dd>
+    draws text to the screen, center-aligned.
+ users should use <a href="../modules/screen.html#text_center">screen.text_center</a> instead
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">words</span>
+         text to draw to the screen
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/screen.html#text_center">screen.text_center</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "screen_text_right"></a>
+    <strong>screen_text_right (words)</strong>
+    </dt>
+    <dd>
+    draws text to the screen, right-aligned.
+ users should use <a href="../modules/screen.html#text_right">screen.text_right</a> instead
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">words</span>
+         text to draw to the screen
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/screen.html#text">screen.text</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "screen_arc"></a>
+    <strong>screen_arc (radius, theta_1, theta_2)</strong>
+    </dt>
+    <dd>
+    draws a circle arc to the screen.
+ users should use <a href="../modules/screen.html#arc">screen.arc</a> instead
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">radius</span>
+         radius of the circle in pixels
+        </li>
+        <li><span class="parameter">theta_1</span>
+         angle to start at (0-2*pi)
+        </li>
+        <li><span class="parameter">theta_2</span>
+         angle to finish at (0-2*pi)
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/screen.html#arc">screen.arc</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "screen_sector"></a>
+    <strong>screen_sector (radius, theta_1, theta_2)</strong>
+    </dt>
+    <dd>
+    draws a filled-in circle arc to the screen.
+ users should use <a href="../modules/screen.html#sector">screen.sector</a> instead
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">radius</span>
+         radius of the circle in pixels
+        </li>
+        <li><span class="parameter">theta_1</span>
+         angle to start at (0-2*pi)
+        </li>
+        <li><span class="parameter">theta_2</span>
+         angle to finish at (0-2*pi)
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/screen.html#sector">screen.sector</a>
     </ul>
 
 
@@ -1184,7 +1407,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
-<i style="float:right;">Last updated 2023-06-26 23:24:53 </i>
+<i style="float:right;">Last updated 2023-06-27 17:03:50 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
