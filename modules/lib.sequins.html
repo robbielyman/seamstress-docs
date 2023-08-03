@@ -31,6 +31,10 @@
   <li><a href="../index.html">Index</a></li>
 </ul>
 
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
 
 
 <h2>Modules</h2>
@@ -39,7 +43,7 @@
   <li><a href="../modules/clock.html">clock</a></li>
   <li><a href="../modules/controlspec.html">controlspec</a></li>
   <li><a href="../modules/grid.html">grid</a></li>
-  <li><strong>keycodes</strong></li>
+  <li><a href="../modules/keycodes.html">keycodes</a></li>
   <li><a href="../modules/metro.html">metro</a></li>
   <li><a href="../modules/midi.html">midi</a></li>
   <li><a href="../modules/osc.html">osc</a></li>
@@ -50,7 +54,7 @@
   <li><a href="../modules/Lattice.html">Lattice</a></li>
   <li><a href="../modules/lib.lfo.html">lib.lfo</a></li>
   <li><a href="../modules/lib.MusicUtil.html">lib.MusicUtil</a></li>
-  <li><a href="../modules/lib.sequins.html">lib.sequins</a></li>
+  <li><strong>lib.sequins</strong></li>
   <li><a href="../modules/tab.html">tab</a></li>
   <li><a href="../modules/lib.UI.html">lib.UI</a></li>
   <li><a href="../modules/util.html">util</a></li>
@@ -66,18 +70,91 @@
 
 <div id="content">
 
-<h1>Module <code>keycodes</code></h1>
-<p>helper module for translating SDL keycodes</p>
+<h1>Module <code>lib.sequins</code></h1>
+<p>sequins</p>
 <p>
 
 </p>
 
 
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#S:func">S:func (fn, ...)</a></td>
+	<td class="summary">transformers</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#S.__call">S.__call (self, ...)</a></td>
+	<td class="summary">metamethods
+ calling the sequins library will create a new sequins object (S:new)
+ calling a sequins object will produce a new value (S:next)</td>
+	</tr>
+</table>
 
 <br/>
 <br/>
 
 
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "S:func"></a>
+    <strong>S:func (fn, ...)</strong>
+    </dt>
+    <dd>
+    transformers
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">fn</span>
+
+
+
+        </li>
+        <li><span class="parameter">...</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "S.__call"></a>
+    <strong>S.__call (self, ...)</strong>
+    </dt>
+    <dd>
+    metamethods
+ calling the sequins library will create a new sequins object (S:new)
+ calling a sequins object will produce a new value (S:next)
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+
+
+        </li>
+        <li><span class="parameter">...</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
 
 
 </div> <!-- id="content" -->

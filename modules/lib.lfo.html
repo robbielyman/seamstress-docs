@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>seamstress</h1>
+
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/arc.html">arc</a></li>
+  <li><a href="../modules/clock.html">clock</a></li>
+  <li><a href="../modules/controlspec.html">controlspec</a></li>
+  <li><a href="../modules/grid.html">grid</a></li>
+  <li><a href="../modules/keycodes.html">keycodes</a></li>
+  <li><a href="../modules/metro.html">metro</a></li>
+  <li><a href="../modules/midi.html">midi</a></li>
+  <li><a href="../modules/osc.html">osc</a></li>
+  <li><a href="../modules/paramset.html">paramset</a></li>
+  <li><a href="../modules/params.control.html">params.control</a></li>
+  <li><a href="../modules/screen.html">screen</a></li>
+  <li><a href="../modules/vport.html">vport</a></li>
+  <li><a href="../modules/Lattice.html">Lattice</a></li>
+  <li><strong>lib.lfo</strong></li>
+  <li><a href="../modules/lib.MusicUtil.html">lib.MusicUtil</a></li>
+  <li><a href="../modules/lib.sequins.html">lib.sequins</a></li>
+  <li><a href="../modules/tab.html">tab</a></li>
+  <li><a href="../modules/lib.UI.html">lib.UI</a></li>
+  <li><a href="../modules/util.html">util</a></li>
+  <li><a href="../modules/seamstress.html">seamstress</a></li>
+</ul>
+<h2>Scripts</h2>
+<ul class="nowrap">
+  <li><a href="../scripts/config.lua.html">config.lua</a></li>
+  <li><a href="../scripts/seamstress.html">seamstress</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>lib.lfo</code></h1>
+<p>construct an LFO</p>
+<p>
+
+</p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#LFO:add">LFO:add (args)</a></td>
+	<td class="summary">construct an LFO via table arguments
+ eg.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#LFO:start">LFO:start ()</a></td>
+	<td class="summary">start LFO</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#LFO:stop">LFO:stop ()</a></td>
+	<td class="summary">stop LFO</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#LFO:set">LFO:set (var, arg)</a></td>
+	<td class="summary">set LFO variable state</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#LFO:get">LFO:get (var)</a></td>
+	<td class="summary">get LFO variable state</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#LFO:reset_phase">LFO:reset_phase ()</a></td>
+	<td class="summary">reset the LFO's phase</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#LFO:add_params">LFO:add_params (id[, separator[, group]])</a></td>
+	<td class="summary">Build parameter menu UI for an already-constructed LFO.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "LFO:add"></a>
+    <strong>LFO:add (args)</strong>
+    </dt>
+    <dd>
+    construct an LFO via table arguments
+ eg.  my_lfo:add{shape = 'sine', min = 200, max = 12000}
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">args</span>
+         a table of arguments.
+ - shape The shape for this LFO (options: 'sine','saw','square','random'; default: 'sine')
+ - min The minimum bound for this LFO (default: 0)
+ - max The maximum bound for this LFO (default: 1)
+ - depth The depth of modulation between min/max (range: 0.0 to 1.0; default: 0.0)
+ - mode How to advance the LFO (options: 'clocked', 'free'; default: 'clocked')
+ - period The timing of this LFO's advancement. If mode is 'clocked', argument is in beats. If mode is 'free', argument is in seconds.
+ - action A callback function to perform as the LFO advances. This library passes both the scaled and the raw value to the callback function.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "LFO:start"></a>
+    <strong>LFO:start ()</strong>
+    </dt>
+    <dd>
+    start LFO
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "LFO:stop"></a>
+    <strong>LFO:stop ()</strong>
+    </dt>
+    <dd>
+    stop LFO
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "LFO:set"></a>
+    <strong>LFO:set (var, arg)</strong>
+    </dt>
+    <dd>
+    set LFO variable state
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">var</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
+         The variable to target (options: 'shape', 'min', 'max', 'depth', 'offset', 'mode', 'period', 'reset_target', 'baseline', 'action', 'ppqn')
+        </li>
+        <li><span class="parameter">arg</span>
+            <span class="types"><span class="type">various</span></span>
+         The argument to pass to the target (often numbers + strings, but 'action' expects a function)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "LFO:get"></a>
+    <strong>LFO:get (var)</strong>
+    </dt>
+    <dd>
+    get LFO variable state
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">var</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
+         The variable to query (options: 'shape', 'min', 'max', 'depth', 'offset', 'mode', 'period', 'reset_target', 'baseline', 'action', 'enabled', 'controlspec')
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "LFO:reset_phase"></a>
+    <strong>LFO:reset_phase ()</strong>
+    </dt>
+    <dd>
+    reset the LFO's phase
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "LFO:add_params"></a>
+    <strong>LFO:add_params (id[, separator[, group]])</strong>
+    </dt>
+    <dd>
+    Build parameter menu UI for an already-constructed LFO.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">id</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
+         The parameter ID to use for this LFO.
+        </li>
+        <li><span class="parameter">separator</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
+         A separator name for the LFO parameters.
+         (<em>optional</em>)
+        </li>
+        <li><span class="parameter">group</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
+         A group name for the LFO parameters.
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2023-08-03 16:57:40 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

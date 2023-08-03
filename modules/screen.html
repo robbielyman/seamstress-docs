@@ -34,6 +34,7 @@
 <h2>Contents</h2>
 <ul>
 <li><a href="#Functions">Functions</a></li>
+<li><a href="#"> </a></li>
 </ul>
 
 
@@ -51,7 +52,12 @@
   <li><a href="../modules/params.control.html">params.control</a></li>
   <li><strong>screen</strong></li>
   <li><a href="../modules/vport.html">vport</a></li>
+  <li><a href="../modules/Lattice.html">Lattice</a></li>
+  <li><a href="../modules/lib.lfo.html">lib.lfo</a></li>
+  <li><a href="../modules/lib.MusicUtil.html">lib.MusicUtil</a></li>
+  <li><a href="../modules/lib.sequins.html">lib.sequins</a></li>
   <li><a href="../modules/tab.html">tab</a></li>
+  <li><a href="../modules/lib.UI.html">lib.UI</a></li>
   <li><a href="../modules/util.html">util</a></li>
   <li><a href="../modules/seamstress.html">seamstress</a></li>
 </ul>
@@ -135,12 +141,20 @@
 	<td class="summary">draws a circle centered at the current position.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#sector">sector (radius, theta_1, theta_2)</a></td>
-	<td class="summary">draws a filled circle arc centered at the current position.</td>
-	</tr>
-	<tr>
 	<td class="name" nowrap><a href="#circle_fill">circle_fill (radius)</a></td>
 	<td class="summary">draws a circle centered at the current position.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#triangle">triangle (ax, ay, bx, by, cx, cy)</a></td>
+	<td class="summary">draws a filled in triangle with the given coordinates.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#quad">quad (ax, ay, bx, by, cx, cy, dx, dy)</a></td>
+	<td class="summary">draws a filled in quad with the given coordinates.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#geometry">geometry (vertices, indices, texture)</a></td>
+	<td class="summary">draws arbitrary vertex-defined geometry.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#text">text (text)</a></td>
@@ -163,6 +177,14 @@
 	<td class="summary">returns the size of the current window.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#Screen.set_size">Screen.set_size (w, h, z)</a></td>
+	<td class="summary">sets the size of the current window</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Screen.set_fullscreen">Screen.set_fullscreen (is_fullscreen)</a></td>
+	<td class="summary">sets the fullscreen state of the current window</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#key">key (char, modifiers, is_repeat, state)</a></td>
 	<td class="summary">callback executed when the user types a key into the gui window.</td>
 	</tr>
@@ -175,8 +197,26 @@
 	<td class="summary">callback executed when the user clicks the mouse on the gui window.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#resized">resized (x, y, window)</a></td>
+	<td class="name" nowrap><a href="#resized">resized ()</a></td>
 	<td class="summary">callback executed when the user resizes a window</td>
+	</tr>
+</table>
+<h2><a href="#"> </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#screen.Texture.render">screen.Texture.render (self, x, y)</a></td>
+	<td class="summary">renders the texture object with top-left corner at (x,y)</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#screen.Texture.render_extended">screen.Texture.render_extended (self, x, y, theta, flip_h, flip_v)</a></td>
+	<td class="summary">renders the texture object with top-left corner at (x,y)</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#new_texture">new_texture (width, height)</a></td>
+	<td class="summary">creates and returns a new texture object
+ the texture data is a rectangle of dimensions (width,height)
+ with top-left corner the current screen position
+ call before calling <a href="../modules/screen.html#refresh">screen.refresh</a>.</td>
 	</tr>
 </table>
 
@@ -527,38 +567,6 @@
 
 </dd>
     <dt>
-    <a name = "sector"></a>
-    <strong>sector (radius, theta_1, theta_2)</strong>
-    </dt>
-    <dd>
-    draws a filled circle arc centered at the current position.
- angles are measured in radians and proceed clockwise
- with 0 pointing to the right. We should have
- <code>0 &lt;= theta_1 &lt;= theta_2 &lt;= 2 * pi</code>
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">radius</span>
-            <span class="types"><span class="type">integer</span></span>
-         in pixels
-        </li>
-        <li><span class="parameter">theta_1</span>
-            <span class="types"><span class="type">number</span></span>
-         initial angle in radians.
-        </li>
-        <li><span class="parameter">theta_2</span>
-            <span class="types"><span class="type">number</span></span>
-         terminal angle in radians.
-        </li>
-    </ul>
-
-
-
-
-
-</dd>
-    <dt>
     <a name = "circle_fill"></a>
     <strong>circle_fill (radius)</strong>
     </dt>
@@ -571,6 +579,124 @@
         <li><span class="parameter">radius</span>
             <span class="types"><span class="type">integer</span></span>
          in pixels
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "triangle"></a>
+    <strong>triangle (ax, ay, bx, by, cx, cy)</strong>
+    </dt>
+    <dd>
+    draws a filled in triangle with the given coordinates.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ax</span>
+            <span class="types"><span class="type">number</span></span>
+         x-coordinate in pixels
+        </li>
+        <li><span class="parameter">ay</span>
+            <span class="types"><span class="type">number</span></span>
+         y-coordinate in pixels
+        </li>
+        <li><span class="parameter">bx</span>
+            <span class="types"><span class="type">number</span></span>
+         x-coordinate in pixels
+        </li>
+        <li><span class="parameter">by</span>
+            <span class="types"><span class="type">number</span></span>
+         y-coordinate in pixels
+        </li>
+        <li><span class="parameter">cx</span>
+            <span class="types"><span class="type">number</span></span>
+         x-coordinate in pixels
+        </li>
+        <li><span class="parameter">cy</span>
+            <span class="types"><span class="type">number</span></span>
+         y-coordinate in pixels
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "quad"></a>
+    <strong>quad (ax, ay, bx, by, cx, cy, dx, dy)</strong>
+    </dt>
+    <dd>
+    draws a filled in quad with the given coordinates.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ax</span>
+            <span class="types"><span class="type">number</span></span>
+         x-coordinate in pixels
+        </li>
+        <li><span class="parameter">ay</span>
+            <span class="types"><span class="type">number</span></span>
+         y-coordinate in pixels
+        </li>
+        <li><span class="parameter">bx</span>
+            <span class="types"><span class="type">number</span></span>
+         x-coordinate in pixels
+        </li>
+        <li><span class="parameter">by</span>
+            <span class="types"><span class="type">number</span></span>
+         y-coordinate in pixels
+        </li>
+        <li><span class="parameter">cx</span>
+            <span class="types"><span class="type">number</span></span>
+         x-coordinate in pixels
+        </li>
+        <li><span class="parameter">cy</span>
+            <span class="types"><span class="type">number</span></span>
+         y-coordinate in pixels
+        </li>
+        <li><span class="parameter">dx</span>
+            <span class="types"><span class="type">number</span></span>
+         x-coordinate in pixels
+        </li>
+        <li><span class="parameter">dy</span>
+            <span class="types"><span class="type">nubmer</span></span>
+         y-coordinate in pixels
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "geometry"></a>
+    <strong>geometry (vertices, indices, texture)</strong>
+    </dt>
+    <dd>
+    draws arbitrary vertex-defined geometry.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">vertices</span>
+         a list of lists of the form {{x, y}, {r, g, b, a?}, {t<em>x, t</em>y}?},
+ where x, y, t<em>x, and t</em>y represent pixel coordinates
+ and r, g, b, a represents a color.
+        </li>
+        <li><span class="parameter">indices</span>
+         (optional) a list of indices into the vertices list
+        </li>
+        <li><span class="parameter">texture</span>
+         (optional) a texture created by <a href="../modules/screen.html#new_texture">screen.new_texture</a>
         </li>
     </ul>
 
@@ -696,6 +822,58 @@
 
 </dd>
     <dt>
+    <a name = "Screen.set_size"></a>
+    <strong>Screen.set_size (w, h, z)</strong>
+    </dt>
+    <dd>
+    sets the size of the current window
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">w</span>
+            <span class="types"><span class="type">integer</span></span>
+         width in pixels
+        </li>
+        <li><span class="parameter">h</span>
+            <span class="types"><span class="type">integer</span></span>
+         height in pixels
+        </li>
+        <li><span class="parameter">z</span>
+            <span class="types"><span class="type">integer</span></span>
+         zoom factor
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Screen.set_fullscreen"></a>
+    <strong>Screen.set_fullscreen (is_fullscreen)</strong>
+    </dt>
+    <dd>
+    sets the fullscreen state of the current window
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">is_fullscreen</span>
+            <span class="types"><span class="type">bool</span></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
     <a name = "key"></a>
     <strong>key (char, modifiers, is_repeat, state)</strong>
     </dt>
@@ -788,25 +966,111 @@
 </dd>
     <dt>
     <a name = "resized"></a>
-    <strong>resized (x, y, window)</strong>
+    <strong>resized ()</strong>
     </dt>
     <dd>
     callback executed when the user resizes a window
 
 
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name=""></a> </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "screen.Texture.render"></a>
+    <strong>screen.Texture.render (self, x, y)</strong>
+    </dt>
+    <dd>
+    renders the texture object with top-left corner at (x,y)
+
+
     <h3>Parameters:</h3>
     <ul>
+        <li><span class="parameter">self</span>
+         texture to render
+        </li>
         <li><span class="parameter">x</span>
             <span class="types"><span class="type">integer</span></span>
-         new x size
+         x-coordinate
         </li>
         <li><span class="parameter">y</span>
             <span class="types"><span class="type">integer</span></span>
-         new y size
+         y-coordinate
         </li>
-        <li><span class="parameter">window</span>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "screen.Texture.render_extended"></a>
+    <strong>screen.Texture.render_extended (self, x, y, theta, flip_h, flip_v)</strong>
+    </dt>
+    <dd>
+    renders the texture object with top-left corner at (x,y)
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+         texture to render
+        </li>
+        <li><span class="parameter">x</span>
             <span class="types"><span class="type">integer</span></span>
-         1 for the main window, 2 for the params window
+         x-coordinate
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">integer</span></span>
+         y-coordinate
+        </li>
+        <li><span class="parameter">theta</span>
+            <span class="types"><span class="type">number</span></span>
+         angle in radians to rotate the texture about its center
+        </li>
+        <li><span class="parameter">flip_h</span>
+            <span class="types"><span class="type">bool</span></span>
+         flip horizontally if true
+        </li>
+        <li><span class="parameter">flip_v</span>
+            <span class="types"><span class="type">bool</span></span>
+         flip vertically if true
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "new_texture"></a>
+    <strong>new_texture (width, height)</strong>
+    </dt>
+    <dd>
+    creates and returns a new texture object
+ the texture data is a rectangle of dimensions (width,height)
+ with top-left corner the current screen position
+ call before calling <a href="../modules/screen.html#refresh">screen.refresh</a>.
+ this operation is slower than most screen calls; try not to call it in a clock, for instance.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">width</span>
+            <span class="types"><span class="type">integer</span></span>
+         width in pixels
+        </li>
+        <li><span class="parameter">height</span>
+            <span class="types"><span class="type">integer</span></span>
+         height in pixels
         </li>
     </ul>
 
@@ -822,7 +1086,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
-<i style="float:right;">Last updated 2023-06-27 17:03:50 </i>
+<i style="float:right;">Last updated 2023-08-03 16:57:40 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

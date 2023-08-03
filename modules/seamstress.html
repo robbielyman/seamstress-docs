@@ -34,6 +34,7 @@
 <h2>Contents</h2>
 <ul>
 <li><a href="#Functions">Functions</a></li>
+<li><a href="#Fields">Fields</a></li>
 </ul>
 
 
@@ -51,7 +52,12 @@
   <li><a href="../modules/params.control.html">params.control</a></li>
   <li><a href="../modules/screen.html">screen</a></li>
   <li><a href="../modules/vport.html">vport</a></li>
+  <li><a href="../modules/Lattice.html">Lattice</a></li>
+  <li><a href="../modules/lib.lfo.html">lib.lfo</a></li>
+  <li><a href="../modules/lib.MusicUtil.html">lib.MusicUtil</a></li>
+  <li><a href="../modules/lib.sequins.html">lib.sequins</a></li>
   <li><a href="../modules/tab.html">tab</a></li>
+  <li><a href="../modules/lib.UI.html">lib.UI</a></li>
   <li><a href="../modules/util.html">util</a></li>
   <li><strong>seamstress</strong></li>
 </ul>
@@ -179,8 +185,35 @@
 	<td class="summary">draws a circle arc to the screen.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#screen_sector">screen_sector (radius, theta_1, theta_2)</a></td>
-	<td class="summary">draws a filled-in circle arc to the screen.</td>
+	<td class="name" nowrap><a href="#screen_circle">screen_circle (radius)</a></td>
+	<td class="summary">draws a circle to the screen.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#screen_circle_fill">screen_circle_fill (radius)</a></td>
+	<td class="summary">draws a filled-in circle to the screen.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#screen_triangle">screen_triangle (ax, ay, bx, by, cx, cy)</a></td>
+	<td class="summary">draws a filled-in triangle.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#screen_quad">screen_quad (ax, ay, bx, by, cx, cy, dx, dy)</a></td>
+	<td class="summary">draws a filled-in quad.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#screen_new_texture">screen_new_texture (width, height)</a></td>
+	<td class="summary">creates and returns a new texture
+ users should use <a href="../modules/screen.html#new_texture">screen.new_texture</a> instead</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#screen_render_texture">screen_render_texture (x, y)</a></td>
+	<td class="summary">renders texture at given coordinates
+ users shoul use <code>screen.Texture.render</code> instead</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#screen_render_texture_extended">screen_render_texture_extended (x, y, theta, flip_h, flip_v)</a></td>
+	<td class="summary">renders texture at given coordinates with rotation and flip
+ users shoul use <code>screen.Texture.render_extended</code> instead</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#screen_color">screen_color (r, g, b, a)</a></td>
@@ -207,6 +240,14 @@
 	<td class="summary">returns the size in pixels of the given text.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#screen_set_size">screen_set_size (width, height, zoom)</a></td>
+	<td class="summary">sets the size of the current window.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#screen_set_fullscreen">screen_set_fullscreen (is_fullscreen)</a></td>
+	<td class="summary">sets the fullscreen state of the current window.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#metro_start">metro_start (idx, seconds, count, stage)</a></td>
 	<td class="summary">starts a new metro.</td>
 	</tr>
@@ -223,6 +264,14 @@
 	<td class="summary">outputs midi data to device.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#clock_schedule_sleep">clock_schedule_sleep ()</a></td>
+	<td class="summary">schedules coroutine for sleep.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#clock_schedule_sync">clock_schedule_sync ()</a></td>
+	<td class="summary">schedules coroutine for sync.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#clock_get_tempo">clock_get_tempo ()</a></td>
 	<td class="summary">returns current tempo.</td>
 	</tr>
@@ -233,6 +282,14 @@
 	<tr>
 	<td class="name" nowrap><a href="#clock_internal_set_tempo">clock_internal_set_tempo (bpm)</a></td>
 	<td class="summary">sets internal clock tempo.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#clock_link_set_tempo">clock_link_set_tempo (bpm)</a></td>
+	<td class="summary">sets link clock tempo.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#clock_set_source">clock_set_source (source)</a></td>
+	<td class="summary">sets clock source.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#clock_internal_start">clock_internal_start ()</a></td>
@@ -247,16 +304,19 @@
 	<td class="summary">cancels coroutine.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#clock_run">clock_run (id, co, ...)</a></td>
-	<td class="summary">resumes coroutine.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#reset_lvm">reset_lvm ()</a></td>
-	<td class="summary">resets lua VM.</td>
+	<td class="name" nowrap><a href="#get_time">get_time ()</a></td>
+	<td class="summary">gets (fractional) time in seconds.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#quit_lvm">quit_lvm ()</a></td>
 	<td class="summary">quits seamstress</td>
+	</tr>
+</table>
+<h2><a href="#Fields">Fields</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#vertices">vertices</a></td>
+	<td class="summary">draws arbitrary vertex-defined geometry.</td>
 	</tr>
 </table>
 
@@ -956,12 +1016,12 @@
 
 </dd>
     <dt>
-    <a name = "screen_sector"></a>
-    <strong>screen_sector (radius, theta_1, theta_2)</strong>
+    <a name = "screen_circle"></a>
+    <strong>screen_circle (radius)</strong>
     </dt>
     <dd>
-    draws a filled-in circle arc to the screen.
- users should use <a href="../modules/screen.html#sector">screen.sector</a> instead
+    draws a circle to the screen.
+ users should use <a href="../modules/screen.html#circle">screen.circle</a> instead
 
 
     <h3>Parameters:</h3>
@@ -969,11 +1029,30 @@
         <li><span class="parameter">radius</span>
          radius of the circle in pixels
         </li>
-        <li><span class="parameter">theta_1</span>
-         angle to start at (0-2*pi)
-        </li>
-        <li><span class="parameter">theta_2</span>
-         angle to finish at (0-2*pi)
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/screen.html#circle">screen.circle</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "screen_circle_fill"></a>
+    <strong>screen_circle_fill (radius)</strong>
+    </dt>
+    <dd>
+    draws a filled-in circle to the screen.
+ users should use <a href="../modules/screen.html#circle_fill">screen.circle_fill</a> instead
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">radius</span>
+         radius of the circle in pixels
         </li>
     </ul>
 
@@ -981,8 +1060,184 @@
 
     <h3>See also:</h3>
     <ul>
-         <a href="../modules/screen.html#sector">screen.sector</a>
+         <a href="../modules/screen.html#circle_fill">screen.circle_fill</a>
     </ul>
+
+
+</dd>
+    <dt>
+    <a name = "screen_triangle"></a>
+    <strong>screen_triangle (ax, ay, bx, by, cx, cy)</strong>
+    </dt>
+    <dd>
+    draws a filled-in triangle.
+ users should use <a href="../modules/screen.html#triangle">screen.triangle</a> instead
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ax</span>
+         x-coordinate
+        </li>
+        <li><span class="parameter">ay</span>
+         y-coordinate
+        </li>
+        <li><span class="parameter">bx</span>
+         x-coordinate
+        </li>
+        <li><span class="parameter">by</span>
+         y-coordinate
+        </li>
+        <li><span class="parameter">cx</span>
+         x-coordinate
+        </li>
+        <li><span class="parameter">cy</span>
+         y-coordinate
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/screen.html#triangle">screen.triangle</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "screen_quad"></a>
+    <strong>screen_quad (ax, ay, bx, by, cx, cy, dx, dy)</strong>
+    </dt>
+    <dd>
+    draws a filled-in quad.
+ users should use <a href="../modules/screen.html#quad">screen.quad</a> instead
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ax</span>
+         x-coordinate
+        </li>
+        <li><span class="parameter">ay</span>
+         y-coordinate
+        </li>
+        <li><span class="parameter">bx</span>
+         x-coordinate
+        </li>
+        <li><span class="parameter">by</span>
+         y-coordinate
+        </li>
+        <li><span class="parameter">cx</span>
+         x-coordinate
+        </li>
+        <li><span class="parameter">cy</span>
+         y-coordinate
+        </li>
+        <li><span class="parameter">dx</span>
+         x-coordinate
+        </li>
+        <li><span class="parameter">dy</span>
+         y-coordinate
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/screen.html#quad">screen.quad</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "screen_new_texture"></a>
+    <strong>screen_new_texture (width, height)</strong>
+    </dt>
+    <dd>
+    creates and returns a new texture
+ users should use <a href="../modules/screen.html#new_texture">screen.new_texture</a> instead
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">width</span>
+         width in pixels
+        </li>
+        <li><span class="parameter">height</span>
+         height in pixels
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        texture opaque pointer to texture
+    </ol>
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/screen.html#new_texture">screen.new_texture</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "screen_render_texture"></a>
+    <strong>screen_render_texture (x, y)</strong>
+    </dt>
+    <dd>
+    renders texture at given coordinates
+ users shoul use <code>screen.Texture.render</code> instead
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+         x-coordinate
+        </li>
+        <li><span class="parameter">y</span>
+         y-coordinate
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "screen_render_texture_extended"></a>
+    <strong>screen_render_texture_extended (x, y, theta, flip_h, flip_v)</strong>
+    </dt>
+    <dd>
+    renders texture at given coordinates with rotation and flip
+ users shoul use <code>screen.Texture.render_extended</code> instead
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+         x-coordinate
+        </li>
+        <li><span class="parameter">y</span>
+         y-coordinate
+        </li>
+        <li><span class="parameter">theta</span>
+         angle in radians
+        </li>
+        <li><span class="parameter">flip_h</span>
+         flip horizontally if true
+        </li>
+        <li><span class="parameter">flip_v</span>
+         flip vertically if true
+        </li>
+    </ul>
+
+
+
 
 
 </dd>
@@ -1106,6 +1361,62 @@
 
 </dd>
     <dt>
+    <a name = "screen_set_size"></a>
+    <strong>screen_set_size (width, height, zoom)</strong>
+    </dt>
+    <dd>
+    sets the size of the current window.
+ users should use <a href="../modules/screen.html#Screen.set_size">screen.set_size</a> instead
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">width</span>
+         width in pixels
+        </li>
+        <li><span class="parameter">height</span>
+         height in pixels
+        </li>
+        <li><span class="parameter">zoom</span>
+         zoom factor
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/screen.html#Screen.set_size">screen.set_size</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "screen_set_fullscreen"></a>
+    <strong>screen_set_fullscreen (is_fullscreen)</strong>
+    </dt>
+    <dd>
+    sets the fullscreen state of the current window.
+ users should use <a href="../modules/screen.html#Screen.set_fullscreen">screen.set_fullscreen</a> instead
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">is_fullscreen</span>
+         boolean
+        </li>
+    </ul>
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/screen.html#Screen.set_fullscreen">screen.set_fullscreen</a>
+    </ul>
+
+
+</dd>
+    <dt>
     <a name = "metro_start"></a>
     <strong>metro_start (idx, seconds, count, stage)</strong>
     </dt>
@@ -1217,6 +1528,44 @@
 
 </dd>
     <dt>
+    <a name = "clock_schedule_sleep"></a>
+    <strong>clock_schedule_sleep ()</strong>
+    </dt>
+    <dd>
+    schedules coroutine for sleep.
+ users should use <a href="../modules/clock.html#sleep">clock.sleep</a> instead
+
+
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/clock.html#sleep">clock.sleep</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "clock_schedule_sync"></a>
+    <strong>clock_schedule_sync ()</strong>
+    </dt>
+    <dd>
+    schedules coroutine for sync.
+ users should use <a href="../modules/clock.html#sync">clock.sync</a> instead
+
+
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../modules/clock.html#sync">clock.sync</a>
+    </ul>
+
+
+</dd>
+    <dt>
     <a name = "clock_get_tempo"></a>
     <strong>clock_get_tempo ()</strong>
     </dt>
@@ -1288,6 +1637,53 @@
 
 </dd>
     <dt>
+    <a name = "clock_link_set_tempo"></a>
+    <strong>clock_link_set_tempo (bpm)</strong>
+    </dt>
+    <dd>
+    sets link clock tempo.
+ not yet implemented!!
+ users should use the clock param instead
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">bpm</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "clock_set_source"></a>
+    <strong>clock_set_source (source)</strong>
+    </dt>
+    <dd>
+    sets clock source.
+ users should use the clock source param instead
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">source</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
     <a name = "clock_internal_start"></a>
     <strong>clock_internal_start ()</strong>
     </dt>
@@ -1343,41 +1739,11 @@
 
 </dd>
     <dt>
-    <a name = "clock_run"></a>
-    <strong>clock_run (id, co, ...)</strong>
+    <a name = "get_time"></a>
+    <strong>get_time ()</strong>
     </dt>
     <dd>
-    resumes coroutine.
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">id</span>
-         coroutine id (1-100);
-        </li>
-        <li><span class="parameter">co</span>
-         coroutine corresponding to id
-        </li>
-        <li><span class="parameter">...</span>
-         args passed to <a href="https://www.lua.org/manual/5.4/manual.html#pdf-coroutine.resume">coroutine.resume</a>.
-        </li>
-    </ul>
-
-
-
-    <h3>See also:</h3>
-    <ul>
-         <a href="../modules/clock.html#run">clock.run</a>
-    </ul>
-
-
-</dd>
-    <dt>
-    <a name = "reset_lvm"></a>
-    <strong>reset_lvm ()</strong>
-    </dt>
-    <dd>
-    resets lua VM.
+    gets (fractional) time in seconds.
 
 
 
@@ -1401,13 +1767,46 @@
 
 </dd>
 </dl>
+    <h2 class="section-header "><a name="Fields"></a>Fields</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "vertices"></a>
+    <strong>vertices</strong>
+    </dt>
+    <dd>
+    draws arbitrary vertex-defined geometry.
+ users should use <a href="../modules/screen.html#geometry">screen.geometry</a> instead.
+
+
+    <ul>
+        <li><span class="parameter">vertices</span>
+         a list of lists {pos, col, tex_coord},
+ where <code>pos = {x, y}</code> is a list of pixel coordinates,
+ where <code>col = {r, g, b, a}</code> is a list of color data,
+ and <code>tex_coord = {x, y}</code> (which is optional), is a list of texture coordinates
+        </li>
+        <li><span class="parameter">indices</span>
+         (optional) a list of indices into the vertices list
+        </li>
+        <li><span class="parameter">texture</span>
+         (optional) a texture to draw from
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
 
 
 </div> <!-- id="content" -->
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
-<i style="float:right;">Last updated 2023-06-27 17:03:50 </i>
+<i style="float:right;">Last updated 2023-08-03 16:57:40 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

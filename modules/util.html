@@ -51,7 +51,12 @@
   <li><a href="../modules/params.control.html">params.control</a></li>
   <li><a href="../modules/screen.html">screen</a></li>
   <li><a href="../modules/vport.html">vport</a></li>
+  <li><a href="../modules/Lattice.html">Lattice</a></li>
+  <li><a href="../modules/lib.lfo.html">lib.lfo</a></li>
+  <li><a href="../modules/lib.MusicUtil.html">lib.MusicUtil</a></li>
+  <li><a href="../modules/lib.sequins.html">lib.sequins</a></li>
   <li><a href="../modules/tab.html">tab</a></li>
+  <li><a href="../modules/lib.UI.html">lib.UI</a></li>
   <li><strong>util</strong></li>
   <li><a href="../modules/seamstress.html">seamstress</a></li>
 </ul>
@@ -79,23 +84,55 @@
 	<td class="summary">check whether a file exists</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Util.clamp">Util.clamp (n, min, max)</a></td>
+	<td class="name" nowrap><a href="#file_exists">file_exists (name)</a></td>
+	<td class="summary">norns compat</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#time">time ()</a></td>
+	<td class="summary">get system time in fractional seconds</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#scandir">scandir (directory)</a></td>
+	<td class="summary">scan directory, return file list.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#file_size">file_size (path)</a></td>
+	<td class="summary">query file size.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#make_dir">make_dir (path)</a></td>
+	<td class="summary">make directory (with parents as needed).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#os_capture">os_capture (cmd, raw)</a></td>
+	<td class="summary">execute os command, capture output.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#string_starts">string_starts (s, start)</a></td>
+	<td class="summary">string begins with.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#trim_string_to_width">trim_string_to_width (s, width)</a></td>
+	<td class="summary">trim string to a display width</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#clamp">clamp (n, min, max)</a></td>
 	<td class="summary">clamp values to min max.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Util.linexp">Util.linexp (slo, shi, dlo, dhi, f)</a></td>
+	<td class="name" nowrap><a href="#linexp">linexp (slo, shi, dlo, dhi, f)</a></td>
 	<td class="summary">convert a linear range to an exponential range</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Util.linlin">Util.linlin (slo, shi, dlo, dhi, f)</a></td>
+	<td class="name" nowrap><a href="#linlin">linlin (slo, shi, dlo, dhi, f)</a></td>
 	<td class="summary">map a linear range to another linear range.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Util.explin">Util.explin (slo, shi, dlo, dhi, f)</a></td>
+	<td class="name" nowrap><a href="#explin">explin (slo, shi, dlo, dhi, f)</a></td>
 	<td class="summary">convert an exponential range to a linear range.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Util.expexp">Util.expexp (slo, shi, dlo, dhi, f)</a></td>
+	<td class="name" nowrap><a href="#expexp">expexp (slo, shi, dlo, dhi, f)</a></td>
 	<td class="summary">map an exponential range to another exponential range.</td>
 	</tr>
 	<tr>
@@ -125,6 +162,10 @@
 	<tr>
 	<td class="name" nowrap><a href="#wrap">wrap (n, min, max)</a></td>
 	<td class="summary">wrap a integer to a positive min/max range</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#wrap_max">wrap_max (n, min, max)</a></td>
+	<td class="summary">wrap an integer to a positive min/max range but clamp the min</td>
 	</tr>
 </table>
 
@@ -163,8 +204,219 @@
 
 </dd>
     <dt>
-    <a name = "Util.clamp"></a>
-    <strong>Util.clamp (n, min, max)</strong>
+    <a name = "file_exists"></a>
+    <strong>file_exists (name)</strong>
+    </dt>
+    <dd>
+    norns compat
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">name</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "time"></a>
+    <strong>time ()</strong>
+    </dt>
+    <dd>
+    get system time in fractional seconds
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        time
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "scandir"></a>
+    <strong>scandir (directory)</strong>
+    </dt>
+    <dd>
+    scan directory, return file list.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">directory</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
+         path to directory
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "file_size"></a>
+    <strong>file_size (path)</strong>
+    </dt>
+    <dd>
+    query file size.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">path</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
+         filepath
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">number</span></span>
+        filesize in bytes
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "make_dir"></a>
+    <strong>make_dir (path)</strong>
+    </dt>
+    <dd>
+    make directory (with parents as needed).
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">path</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "os_capture"></a>
+    <strong>os_capture (cmd, raw)</strong>
+    </dt>
+    <dd>
+    execute os command, capture output.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">cmd</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
+         command
+        </li>
+        <li><span class="parameter">raw</span>
+         raw output (omit for scrubbed)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        output
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "string_starts"></a>
+    <strong>string_starts (s, start)</strong>
+    </dt>
+    <dd>
+    string begins with.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">s</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
+         string to examine
+        </li>
+        <li><span class="parameter">start</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
+         string to search for
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        true or false
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "trim_string_to_width"></a>
+    <strong>trim_string_to_width (s, width)</strong>
+    </dt>
+    <dd>
+    trim string to a display width
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">s</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
+         string to trim
+        </li>
+        <li><span class="parameter">width</span>
+            <span class="types"><span class="type">number</span></span>
+         maximum width
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
+        trimmed string
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "clamp"></a>
+    <strong>clamp (n, min, max)</strong>
     </dt>
     <dd>
     clamp values to min max.
@@ -198,8 +450,8 @@
 
 </dd>
     <dt>
-    <a name = "Util.linexp"></a>
-    <strong>Util.linexp (slo, shi, dlo, dhi, f)</strong>
+    <a name = "linexp"></a>
+    <strong>linexp (slo, shi, dlo, dhi, f)</strong>
     </dt>
     <dd>
     convert a linear range to an exponential range
@@ -243,8 +495,8 @@
 
 </dd>
     <dt>
-    <a name = "Util.linlin"></a>
-    <strong>Util.linlin (slo, shi, dlo, dhi, f)</strong>
+    <a name = "linlin"></a>
+    <strong>linlin (slo, shi, dlo, dhi, f)</strong>
     </dt>
     <dd>
     map a linear range to another linear range.
@@ -288,8 +540,8 @@
 
 </dd>
     <dt>
-    <a name = "Util.explin"></a>
-    <strong>Util.explin (slo, shi, dlo, dhi, f)</strong>
+    <a name = "explin"></a>
+    <strong>explin (slo, shi, dlo, dhi, f)</strong>
     </dt>
     <dd>
     convert an exponential range to a linear range.
@@ -333,8 +585,8 @@
 
 </dd>
     <dt>
-    <a name = "Util.expexp"></a>
-    <strong>Util.expexp (slo, shi, dlo, dhi, f)</strong>
+    <a name = "expexp"></a>
+    <strong>expexp (slo, shi, dlo, dhi, f)</strong>
     </dt>
     <dd>
     map an exponential range to another exponential range.
@@ -576,6 +828,47 @@
 
 
 </dd>
+    <dt>
+    <a name = "wrap_max"></a>
+    <strong>wrap_max (n, min, max)</strong>
+    </dt>
+    <dd>
+    wrap an integer to a positive min/max range but clamp the min
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">n</span>
+            <span class="types"><span class="type">integer</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">min</span>
+            <span class="types"><span class="type">integer</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">max</span>
+            <span class="types"><span class="type">integer</span></span>
+
+
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">integer</span></span>
+        cycled value
+    </ol>
+
+
+
+
+</dd>
 </dl>
 
 
@@ -583,7 +876,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
-<i style="float:right;">Last updated 2023-06-27 17:03:50 </i>
+<i style="float:right;">Last updated 2023-08-03 16:57:40 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
