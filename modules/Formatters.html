@@ -1,0 +1,468 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>seamstress</h1>
+
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/arc.html">arc</a></li>
+  <li><a href="../modules/clock.html">clock</a></li>
+  <li><a href="../modules/controlspec.html">controlspec</a></li>
+  <li><a href="../modules/grid.html">grid</a></li>
+  <li><a href="../modules/keycodes.html">keycodes</a></li>
+  <li><a href="../modules/metro.html">metro</a></li>
+  <li><a href="../modules/midi.html">midi</a></li>
+  <li><a href="../modules/osc.html">osc</a></li>
+  <li><a href="../modules/paramset.html">paramset</a></li>
+  <li><a href="../modules/params.control.html">params.control</a></li>
+  <li><a href="../modules/screen.html">screen</a></li>
+  <li><a href="../modules/vport.html">vport</a></li>
+  <li><strong>Formatters</strong></li>
+  <li><a href="../modules/Lattice.html">Lattice</a></li>
+  <li><a href="../modules/lib.lfo.html">lib.lfo</a></li>
+  <li><a href="../modules/lib.MusicUtil.html">lib.MusicUtil</a></li>
+  <li><a href="../modules/lib.pattern.html">lib.pattern</a></li>
+  <li><a href="../modules/lib.sequins.html">lib.sequins</a></li>
+  <li><a href="../modules/tab.html">tab</a></li>
+  <li><a href="../modules/lib.UI.html">lib.UI</a></li>
+  <li><a href="../modules/util.html">util</a></li>
+  <li><a href="../modules/seamstress.html">seamstress</a></li>
+</ul>
+<h2>Scripts</h2>
+<ul class="nowrap">
+  <li><a href="../scripts/config.lua.html">config.lua</a></li>
+  <li><a href="../scripts/seamstress.html">seamstress</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>Formatters</code></h1>
+<p>Formatters, to have custom rendering of param values as text</p>
+<p>
+
+</p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#format_freq_raw">format_freq_raw (freq)</a></td>
+	<td class="summary">format<em>freq</em>raw</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#format_secs_raw">format_secs_raw (secs)</a></td>
+	<td class="summary">format<em>secs</em>raw</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#default">default (param)</a></td>
+	<td class="summary">default</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#percentage">percentage (param)</a></td>
+	<td class="summary">percentage</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#unipolar_as_percentage">unipolar_as_percentage (param)</a></td>
+	<td class="summary">unipolar<em>as</em>percentage</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#bipolar_as_percentage">bipolar_as_percentage (param)</a></td>
+	<td class="summary">bipolar<em>as</em>percentage</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#secs_as_ms">secs_as_ms (param)</a></td>
+	<td class="summary">secs<em>as</em>ms</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#unipolar_as_true_false">unipolar_as_true_false (param)</a></td>
+	<td class="summary">unipolar<em>as</em>true_false</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#unipolar_as_enabled_disabled">unipolar_as_enabled_disabled (param)</a></td>
+	<td class="summary">unipolar<em>as</em>enabled_disabled</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#bipolar_as_pan_widget">bipolar_as_pan_widget (param)</a></td>
+	<td class="summary">bipolar<em>as</em>pan_widget</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#unipolar_as_multimode_filter_freq">unipolar_as_multimode_filter_freq (param)</a></td>
+	<td class="summary">unipolar<em>as</em>multimode<em>filter</em>freq</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#round">round (precision)</a></td>
+	<td class="summary">round</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#format_freq">format_freq (param)</a></td>
+	<td class="summary">format_freq</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#format_secs">format_secs (param)</a></td>
+	<td class="summary">format_secs</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "format_freq_raw"></a>
+    <strong>format_freq_raw (freq)</strong>
+    </dt>
+    <dd>
+    format<em>freq</em>raw
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">freq</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "format_secs_raw"></a>
+    <strong>format_secs_raw (secs)</strong>
+    </dt>
+    <dd>
+    format<em>secs</em>raw
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">secs</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "default"></a>
+    <strong>default (param)</strong>
+    </dt>
+    <dd>
+    default
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">param</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "percentage"></a>
+    <strong>percentage (param)</strong>
+    </dt>
+    <dd>
+    percentage
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">param</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "unipolar_as_percentage"></a>
+    <strong>unipolar_as_percentage (param)</strong>
+    </dt>
+    <dd>
+    unipolar<em>as</em>percentage
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">param</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "bipolar_as_percentage"></a>
+    <strong>bipolar_as_percentage (param)</strong>
+    </dt>
+    <dd>
+    bipolar<em>as</em>percentage
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">param</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "secs_as_ms"></a>
+    <strong>secs_as_ms (param)</strong>
+    </dt>
+    <dd>
+    secs<em>as</em>ms
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">param</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "unipolar_as_true_false"></a>
+    <strong>unipolar_as_true_false (param)</strong>
+    </dt>
+    <dd>
+    unipolar<em>as</em>true_false
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">param</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "unipolar_as_enabled_disabled"></a>
+    <strong>unipolar_as_enabled_disabled (param)</strong>
+    </dt>
+    <dd>
+    unipolar<em>as</em>enabled_disabled
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">param</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "bipolar_as_pan_widget"></a>
+    <strong>bipolar_as_pan_widget (param)</strong>
+    </dt>
+    <dd>
+    bipolar<em>as</em>pan_widget
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">param</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "unipolar_as_multimode_filter_freq"></a>
+    <strong>unipolar_as_multimode_filter_freq (param)</strong>
+    </dt>
+    <dd>
+    unipolar<em>as</em>multimode<em>filter</em>freq
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">param</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "round"></a>
+    <strong>round (precision)</strong>
+    </dt>
+    <dd>
+    round
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">precision</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "format_freq"></a>
+    <strong>format_freq (param)</strong>
+    </dt>
+    <dd>
+    format_freq
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">param</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "format_secs"></a>
+    <strong>format_secs (param)</strong>
+    </dt>
+    <dd>
+    format_secs
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">param</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2023-09-23 15:22:29 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

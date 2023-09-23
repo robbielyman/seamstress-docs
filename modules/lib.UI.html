@@ -58,6 +58,7 @@
   <li><a href="../modules/params.control.html">params.control</a></li>
   <li><a href="../modules/screen.html">screen</a></li>
   <li><a href="../modules/vport.html">vport</a></li>
+  <li><a href="../modules/Formatters.html">Formatters</a></li>
   <li><a href="../modules/Lattice.html">Lattice</a></li>
   <li><a href="../modules/lib.lfo.html">lib.lfo</a></li>
   <li><a href="../modules/lib.MusicUtil.html">lib.MusicUtil</a></li>
@@ -89,7 +90,7 @@
 <h2><a href="#Pages">Pages </a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#UI.Pages.new">UI.Pages.new (index, num_pages, active_color, inactive_color, window)</a></td>
+	<td class="name" nowrap><a href="#UI.Pages.new">UI.Pages.new (index, num_pages, active_color, inactive_color)</a></td>
 	<td class="summary">Create a new Pages object</td>
 	</tr>
 	<tr>
@@ -108,7 +109,7 @@
 <h2><a href="#Tabs">Tabs </a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#UI.Tabs.new">UI.Tabs.new (index, titles, active_color, inactive_color, window)</a></td>
+	<td class="name" nowrap><a href="#UI.Tabs.new">UI.Tabs.new (index, titles, active_color, inactive_color)</a></td>
 	<td class="summary">Create a new Tabs object.</td>
 	</tr>
 	<tr>
@@ -124,14 +125,14 @@
 	<td class="summary">Redraw Tabs.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#UI.tabs:click">UI.tabs:click (x, y, state, button)</a></td>
+	<td class="name" nowrap><a href="#UI.Tabs:click">UI.Tabs:click (x, y, state, button)</a></td>
 	<td class="summary">Use to process tabs clicks; responds on mouse release</td>
 	</tr>
 </table>
 <h2><a href="#List">List </a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#UI.List.new">UI.List.new (x, y, index, entries, active_color, inactive_color, window)</a></td>
+	<td class="name" nowrap><a href="#UI.List.new">UI.List.new (x, y, index, entries, active_color, inactive_color)</a></td>
 	<td class="summary">Create a new List object.</td>
 	</tr>
 	<tr>
@@ -154,7 +155,7 @@
 <h2><a href="#ScrollingList">ScrollingList </a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#UI.ScrollingList.new">UI.ScrollingList.new (x, y, index, entries, active_color, inactive_color, window)</a></td>
+	<td class="name" nowrap><a href="#UI.ScrollingList.new">UI.ScrollingList.new (x, y, index, entries, active_color, inactive_color)</a></td>
 	<td class="summary">Create a new ScrollingList object.</td>
 	</tr>
 	<tr>
@@ -177,7 +178,7 @@
 <h2><a href="#Message">Message </a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#UI.Message.new">UI.Message.new (text_array, active_color, inactive_color, window)</a></td>
+	<td class="name" nowrap><a href="#UI.Message.new">UI.Message.new (text_array, active_color, inactive_color)</a></td>
 	<td class="summary">Create a new Message object.</td>
 	</tr>
 	<tr>
@@ -192,7 +193,7 @@
 <h2><a href="#Slider">Slider </a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#UI.Slider.new">UI.Slider.new (x, y, width, height, value, min_value, max_value, markers, direction, colors, window)</a></td>
+	<td class="name" nowrap><a href="#UI.Slider.new">UI.Slider.new (x, y, width, height, value, min_value, max_value, markers, direction, colors)</a></td>
 	<td class="summary">Create a new Slider object.</td>
 	</tr>
 	<tr>
@@ -219,7 +220,7 @@
 <h2><a href="#Dial">Dial </a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#UI.Dial.new">UI.Dial.new (x, y, size, value, min_value, max_value, rounding, start_value, markers, units, title, colors, window)</a></td>
+	<td class="name" nowrap><a href="#UI.Dial.new">UI.Dial.new (x, y, size, value, min_value, max_value, rounding, start_value, markers, units, title, colors)</a></td>
 	<td class="summary">Create a new Dial object.</td>
 	</tr>
 	<tr>
@@ -246,7 +247,7 @@
 <h2><a href="#PlaybackIcon">PlaybackIcon </a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#UI.PlaybackIcon.new">UI.PlaybackIcon.new (x, y, size, status, active_color, inactive_color, window)</a></td>
+	<td class="name" nowrap><a href="#UI.PlaybackIcon.new">UI.PlaybackIcon.new (x, y, size, status, active_color, inactive_color)</a></td>
 	<td class="summary">Create a new PlaybackIcon object.</td>
 	</tr>
 	<tr>
@@ -272,7 +273,7 @@
     <dl class="function">
     <dt>
     <a name = "UI.Pages.new"></a>
-    <strong>UI.Pages.new (index, num_pages, active_color, inactive_color, window)</strong>
+    <strong>UI.Pages.new (index, num_pages, active_color, inactive_color)</strong>
     </dt>
     <dd>
     Create a new Pages object
@@ -293,10 +294,6 @@
         </li>
         <li><span class="parameter">inactive_color</span>
          <code>{r, g, b}</code>, defaults to <code>{20, 20, 20}</code>.
-        </li>
-        <li><span class="parameter">window</span>
-            <span class="types"><span class="type">integer</span></span>
-         1 for main window, 2 for params, defaults to 1.
         </li>
     </ul>
 
@@ -378,7 +375,7 @@
     <dl class="function">
     <dt>
     <a name = "UI.Tabs.new"></a>
-    <strong>UI.Tabs.new (index, titles, active_color, inactive_color, window)</strong>
+    <strong>UI.Tabs.new (index, titles, active_color, inactive_color)</strong>
     </dt>
     <dd>
     Create a new Tabs object.
@@ -399,10 +396,6 @@
         </li>
         <li><span class="parameter">inactive_color</span>
          {r, g, b}, defaults to {80, 80, 80}.
-        </li>
-        <li><span class="parameter">window</span>
-            <span class="types"><span class="type">integer</span></span>
-         1 for main window, 2 for params, defaults to 1.
         </li>
     </ul>
 
@@ -479,8 +472,8 @@
 
 </dd>
     <dt>
-    <a name = "UI.tabs:click"></a>
-    <strong>UI.tabs:click (x, y, state, button)</strong>
+    <a name = "UI.Tabs:click"></a>
+    <strong>UI.Tabs:click (x, y, state, button)</strong>
     </dt>
     <dd>
     Use to process tabs clicks; responds on mouse release
@@ -513,7 +506,7 @@
     <dl class="function">
     <dt>
     <a name = "UI.List.new"></a>
-    <strong>UI.List.new (x, y, index, entries, active_color, inactive_color, window)</strong>
+    <strong>UI.List.new (x, y, index, entries, active_color, inactive_color)</strong>
     </dt>
     <dd>
     Create a new List object.
@@ -542,10 +535,6 @@
         </li>
         <li><span class="parameter">inactive_color</span>
          {r, g, b}, defaults to {80, 80, 80}
-        </li>
-        <li><span class="parameter">window</span>
-            <span class="types"><span class="type">integer</span></span>
-         1 for main window, 2 for params, defaults to 1.
         </li>
     </ul>
 
@@ -648,7 +637,7 @@
     <dl class="function">
     <dt>
     <a name = "UI.ScrollingList.new"></a>
-    <strong>UI.ScrollingList.new (x, y, index, entries, active_color, inactive_color, window)</strong>
+    <strong>UI.ScrollingList.new (x, y, index, entries, active_color, inactive_color)</strong>
     </dt>
     <dd>
     Create a new ScrollingList object.
@@ -677,10 +666,6 @@
         </li>
         <li><span class="parameter">inactive_color</span>
          {r, g, b}, defaults to {80, 80, 80}.
-        </li>
-        <li><span class="parameter">window</span>
-            <span class="types"><span class="type">integer</span></span>
-         1 for main window, 2 for params, defaults to 1.
         </li>
     </ul>
 
@@ -783,7 +768,7 @@
     <dl class="function">
     <dt>
     <a name = "UI.Message.new"></a>
-    <strong>UI.Message.new (text_array, active_color, inactive_color, window)</strong>
+    <strong>UI.Message.new (text_array, active_color, inactive_color)</strong>
     </dt>
     <dd>
     Create a new Message object.
@@ -800,10 +785,6 @@
         </li>
         <li><span class="parameter">inactive_color</span>
          {r, g, b}, defaults to {80, 80, 80}.
-        </li>
-        <li><span class="parameter">window</span>
-            <span class="types"><span class="type">integer</span></span>
-         1 for the main window, 2 for the params window.
         </li>
     </ul>
 
@@ -860,7 +841,7 @@
     <dl class="function">
     <dt>
     <a name = "UI.Slider.new"></a>
-    <strong>UI.Slider.new (x, y, width, height, value, min_value, max_value, markers, direction, colors, window)</strong>
+    <strong>UI.Slider.new (x, y, width, height, value, min_value, max_value, markers, direction, colors)</strong>
     </dt>
     <dd>
     Create a new Slider object.
@@ -906,10 +887,6 @@
         </li>
         <li><span class="parameter">colors</span>
          table of background<em>color, inactive</em>color and active_color, all {r, g, b}
-        </li>
-        <li><span class="parameter">window</span>
-            <span class="types"><span class="type">integer</span></span>
-         1 for the main window, 2 for the params window.
         </li>
     </ul>
 
@@ -1033,7 +1010,7 @@
     <dl class="function">
     <dt>
     <a name = "UI.Dial.new"></a>
-    <strong>UI.Dial.new (x, y, size, value, min_value, max_value, rounding, start_value, markers, units, title, colors, window)</strong>
+    <strong>UI.Dial.new (x, y, size, value, min_value, max_value, rounding, start_value, markers, units, title, colors)</strong>
     </dt>
     <dd>
     Create a new Dial object.
@@ -1087,10 +1064,6 @@
         </li>
         <li><span class="parameter">colors</span>
          table of background<em>color, inactive</em>color, and active_color, all {r, g, b}
-        </li>
-        <li><span class="parameter">window</span>
-            <span class="types"><span class="type">integer</span></span>
-         1 for main window, 2 for params, defaults to 1.
         </li>
     </ul>
 
@@ -1214,7 +1187,7 @@
     <dl class="function">
     <dt>
     <a name = "UI.PlaybackIcon.new"></a>
-    <strong>UI.PlaybackIcon.new (x, y, size, status, active_color, inactive_color, window)</strong>
+    <strong>UI.PlaybackIcon.new (x, y, size, status, active_color, inactive_color)</strong>
     </dt>
     <dd>
     Create a new PlaybackIcon object.
@@ -1243,10 +1216,6 @@
         </li>
         <li><span class="parameter">inactive_color</span>
          {r, g, b}, defaults to {80, 80, 80},
-        </li>
-        <li><span class="parameter">window</span>
-            <span class="types"><span class="type">integer</span></span>
-         1 for the main window, 2 for the params window
         </li>
     </ul>
 
@@ -1325,7 +1294,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
-<i style="float:right;">Last updated 2023-08-31 11:14:20 </i>
+<i style="float:right;">Last updated 2023-09-23 15:22:29 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
