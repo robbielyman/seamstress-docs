@@ -1,1 +1,1 @@
-Documentation for [seamstress](https://github.com/ryleelyman/seamstress)
+sDocumentation for [seamstress](https://github.com/ryleelyman/seamstress)
