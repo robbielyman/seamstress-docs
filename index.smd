@@ -1,0 +1,119 @@
+---
+.title = "Seamstress",
+.date = @date("2024-10-10T10:04:00-04:00"),
+.author = "Robbie Lyman",
+.layout = "project.shtml",
+.draft = false,
+---
+
+[]($section.id("summary"))
+
+Seamstress is an “art engine”
+and batteries-included Lua environment
+for music, games, visuals and creative coding.
+It is written in [Lua]($link.url("https://lua.org")) and [Zig]($link.url("https://ziglang.org")),
+and inspired by
+[monome]($link.url("https://monome.org")) [norns]($link.url("https://github.com/monome/norns")),
+[Love2D]($link.url("https://love2d.org/")),
+[Hydra]($link.url("https://hydra.ojack.xyz/")) and [Node.js]($link.url("https://nodejs.org/")).
+Seamstress is unstable software.
+
+[]($section.id("remainder"))
+
+# Demos
+
+[Mitchell Hashimoto]($link.url("https://mitchellh.com/")) has a great blog post on large projects,
+which I'll quote a little of:
+
+> I've learned that when I break down my large tasks in chunks that result in seeing tangible forward progress,
+> I tend to finish my work and retain my excitement throughout the project.
+> People are all motivated and driven in different ways, so this may not work for you,
+> but as a broad generalization I've not found an engineer who doesn't get excited by a good demo.
+> And the goal is to always give yourself a good demo.
+
+—[“My Approach to Building Large Technical Projects”]($link.url("https://mitchellh.com/writing/building-large-technical-projects"))
+
+His approach resonates with how I’ve been most successful when working on Seamstress.
+I plan to collect documentation of the demos I produce in its development here.
+If you make something cool and “demo-y” with Seamstress and would like it to live here,
+let me know; I’d love to feature stuff you make!
+
+## Plasma
+
+[“A plasma is a sort of noise function”](https://demobasics.pixienop.net/tweetcarts/basics#plasmas),
+says this website.
+My introduction to plasmas is due to
+[Brian Crabtree]($link.url("https://nnnnnnnn.co")),
+who created [Plasma]($link.url("https://llllllll.co/t/plasma/64038")),
+a [norns]($link.url("https://monome.org/")) [script]($link.url("https://github.com/tehn/plasma")).
+It uses the [monome grid]($link.rule("https://monome.org")) as a canvas for the animation,
+which is procedurally derived from a short function.
+Changing the parameters (or the function itself) is part of the fun.
+
+[]($image.asset("plasma.gif"))
+
+[Plasma for Seamstress]($link.page('code/seamstress/plasma')).
+I talk through the short demo script and a bit about the design of Seamstress’s
+interaction with monome devices.
+
+# Installation
+
+Seamstress version 2 is currently developed and tested on macOS,
+but supporting Linux (and perhaps Windows) is a design goal.
+It may be built from source or installed via [Homebrew]($link.url("https://brew.sh")).
+To install via Homebrew, run the following commands.
+
+[]($code.asset("installation.sh").language("sh"))
+
+## Building from source
+
+To build seamstress from source,
+you’ll need the [Zig]($link.url("https://ziglang.org")) compiler, version 0.13.0.
+You can download it from the linked website,
+or install via a package manager like Homebrew.
+To compile seamstress, clone [the repository]($link.url("https://github.com/robbielyman"))
+(make sure you’re on the correct branch)
+and run `zig build` in the repository root.
+
+Doing so will place the compiled executable in `./zig-out/bin`.
+You can add this folder to your `$PATH`,
+copy the files installed into `zig-out` somewhere in your `$PATH`
+or symlink it into your `$PATH`.
+Now by default, seamstress will expect the file structure present within `zig-out`
+to be reflected wherever it is copied,
+so if you copy `seamstress` into `/usr/local/bin`,
+you should copy `share/seamstress`
+into `/usr/local/share/seamstress`,
+but see the section on environment variables.
+
+## Dependencies
+
+Aside from the Zig compiler, seamstress depends on a number of Zig projects,
+as well as some C libraries.
+
+### Zig dependencies
+
+This section is informational; these dependencies are fetched by the Zig compiler
+when building seamstress from source and do not to be installed separately.
+- [libxev]($link.url("https://github.com/mitchellh/libxev")), a cross-platform event loop inspired by `io_uring`.
+- [ziglua]($link.url("https://github.com/natecraddock/ziglua")), Zig bindings for the Lua C API.
+Additionally, ziglua compiles and statically links against the C library `liblua`.
+
+### C dependencies
+
+These dependencies must be present on your system in order to use seamstress
+and must be installed separately.
+The Homebrew formula automates this step, but building from source does not.
+
+### Optional dependencies
+
+Although not necessary for all operations of seamstress,
+certain functionality may not work as expected if a dependency listed here is not present.
+- [LuaRocks]($link.url("https://luarocks.org/")) (in particular [busted]($link.url("https://luarocks.org/modules/lunarmodules/busted")))
+is required for running the Lua unit tests.
+Additionally, the seamstress Lua environment can require LuaRocks modules.
+- [lua-language-server]($link.url("https://github.com/LuaLS/lua-language-server")) in a text editor that supports the language server protocol,
+is not necessary for writing seamstress programs,
+but will provide documentation, completion, etc.
+
+# Documentation
