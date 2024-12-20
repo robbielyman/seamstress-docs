@@ -46,7 +46,7 @@ My introduction to plasmas is due to
 [Brian Crabtree]($link.url("https://nnnnnnnn.co")),
 who created [Plasma]($link.url("https://llllllll.co/t/plasma/64038")),
 a [norns]($link.url("https://monome.org/")) [script]($link.url("https://github.com/tehn/plasma")).
-It uses the [monome grid]($link.rule("https://monome.org")) as a canvas for the animation,
+It uses the [monome grid]($link.url("https://monome.org")) as a canvas for the animation,
 which is procedurally derived from a short function.
 Changing the parameters (or the function itself) is part of the fun.
 
