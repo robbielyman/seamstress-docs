@@ -1,0 +1,36 @@
+---
+.title = "Seamstress demo: plasma",
+.date = @date("2024-12-19T09:00:00-05:00"),
+.author = "Robbie Lyman",
+.layout = "demo.shtml",
+.draft = false,
+---
+
+[]($code.asset("plasma.lua"))
+
+The core of this script (which is repurposeable, even in flight)
+is the global function `f`, which uses opposing `sin` and `cos` functions
+changing over time to derive an LED value.
+
+When the script is required,
+it subscribes a handler to the `{ 'monome', 'grid', 'add' }` namespace.
+This function will be called every time an event is posted to that namespace.
+`{ 'monome', 'grid', 'add' }` events are posted by the `seamstress.monome`
+module in response to grids being connected to Seamstress.
+
+The handler first _connects_ to the grid,
+so that it sends key press events to Seamstress
+(strictly speaking, this is probably not necessary for this script,
+which is only interested in drawing to the grid,
+but it’s probably a good idea anyway).
+Then it sets the global variable `timer` to a new instance
+of `seamstress.Timer`,
+which will be called at a rate of 60 times per second
+(because of the `1 / 60` parameter).
+This function first updates the global variable `t`,
+and then using `f` draws to the connected grid using `grid:led`.
+Finally it pushes those updates to the grid with `grid:refresh`.
+
+The script ends by exposing a function `start`,
+which loads the `seamstress.monome` module and starts
+a connection to `serialoscd` on the provided port number.
